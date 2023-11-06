@@ -7,17 +7,13 @@
     xmlns:views="clr-namespace:dynamicresources.app.Views"
     Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
+  <ShellContent
       Title="DynamicResourcePage"
       ContentTemplate="{DataTemplate views:DynamicResourcePage}"
       Route="DynamicResourcePage" />
-  
-    <ShellContent
+
+  <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-  
-
-
-
 </Shell>

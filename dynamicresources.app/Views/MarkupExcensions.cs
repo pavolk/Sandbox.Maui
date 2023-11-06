@@ -6,7 +6,6 @@ namespace dynamicresources.app.Views
     public static class MarkupExtensions
 
     {
-
         public static Picker ItemsSource<T>(this Picker itemsView, IEnumerable<T> itemsSource)
         {
             itemsView.ItemsSource = itemsSource?.ToList() ?? Enumerable.Empty<T>().ToList();
@@ -36,6 +35,5 @@ namespace dynamicresources.app.Views
             b.Bind(Button.TextProperty, "SelectedLocale", convert: (CultureInfo _) => textGenerator());
             return b;
         }
-
     }
 }
