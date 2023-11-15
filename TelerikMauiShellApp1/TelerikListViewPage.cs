@@ -73,7 +73,7 @@ public class BaseContentPage : ContentPage
 { 
 	protected BaseContentPage() 
 	{
-		Content = new VerticalStackLayout() {
+        Content = new VerticalStackLayout() {
 			Children = {
 				new ActivityIndicator() {
 					IsRunning = true,
@@ -82,11 +82,30 @@ public class BaseContentPage : ContentPage
 			}
 		}.Center();
 	}
+
+    protected async Task<T> RunTask<T>(Func<Task<T>> asyncTask)
+    {
+        IsBusy = true;
+        try {
+            var result = await asyncTask();
+            IsBusy = false;
+            return result;
+        } catch (Exception ex) {
+            IsBusy = false;
+            bool retry = await DisplayAlert("Error", ex.Message, "Retry", "Cancel");
+            if (retry) {
+                await DisplayAlert("", "Not implemented yet!", "Cancel");
+            }
+            throw;
+        }
+    }
 }
 
 public partial class TelerikListViewPage : BaseContentPage
 {
     const int ROW_HEIGHT = 100;
+    const int LOAD_DATA_DELAY_MILLIS = 2000;
+
     enum Row { Header, Body, Footer, TestingToolBar }
 
     #region view-model
@@ -113,40 +132,30 @@ public partial class TelerikListViewPage : BaseContentPage
     // TODO: add an interactive retry-loop with some countdown and navigating back...
     // TODO: add all items before triggering updated-event
 
+    // REVISIT: This will not crash the app, but not invoke the TaskScheduler.UnobservedTaskException 
+    // [RelayCommand(FlowExceptionsToTaskScheduler = true)]
     [RelayCommand]
-	async Task OnLoadData(LoadOnDemandCommandContext context)
+    async Task OnLoadData(LoadOnDemandCommandContext context)
 	{
         Debug.WriteLine($"loading data...");
 
-        IsBusy = true;
-
         try {
-            var result = await LoadDataAsync(_skip + _take, _take);
+            var result = await RunTask(() => LoadDataAsync(_skip + _take, _take));
             foreach (var i in result) { 
                 Items.Add(i);
             }
             _skip += _take;
         } catch (Exception ex) {
             Debug.WriteLine(ex.ToString());
-            bool retry = await DisplayAlert("Error", ex.Message, "Retry", "Cancel");
-            if (retry) {
-                await DisplayAlert("", "Not implemented yet!", "Cancel");
-            }
         }
-
-        IsBusy = false;
     }
-
-    // TODO: add all items before triggering updated-event
 
     async Task OnRefreshData(object source, PullToRefreshRequestedEventArgs e)
     {
         Debug.WriteLine($"refreshing data...");
 
-        IsBusy = true;
-
         try {
-            var result = await LoadDataAsync(0, _take);
+            var result = await RunTask(() => LoadDataAsync(0, _take));
             Items.Clear();
             foreach (var i in result) {
                 Items.Add(i);
@@ -154,13 +163,7 @@ public partial class TelerikListViewPage : BaseContentPage
             _skip = 0;
         } catch (Exception ex) {
             Debug.WriteLine(ex.ToString());
-            bool retry = await DisplayAlert("Error", ex.Message, "Retry", "Cancel");
-            if (retry) {
-                await DisplayAlert("", "Not implemented yet!", "Cancel");
-            }
         }
-
-        IsBusy = false;
     }
 
     bool _failOnNextLoadData = false;
@@ -181,7 +184,7 @@ public partial class TelerikListViewPage : BaseContentPage
 
     async Task<IEnumerable<Item>> LoadDataAsync(int skip, int take)
     {
-        await Task.Delay(1000);
+        await Task.Delay(LOAD_DATA_DELAY_MILLIS);
         if (_failOnNextLoadData) {
             throw new Exception("Loading data failed...");
         }
@@ -230,7 +233,7 @@ public partial class TelerikListViewPage : BaseContentPage
                         }
                         ,
                         IsLoadOnDemandEnabled = true,
-                        LoadOnDemandMode = LoadOnDemandMode.Automatic
+                        LoadOnDemandMode = LoadOnDemandMode.Automatic   // not supported on Windows?
                         ,
                         IsPullToRefreshEnabled = true
                         ,
@@ -279,6 +282,9 @@ public partial class TelerikListViewPage : BaseContentPage
                         }.Text("Simulate data loading error...")
                     }
                 }.Row(Row.TestingToolBar)
+                .Bind(View.BackgroundColorProperty, 
+                        nameof(IsBusy), 
+                        convert: (bool v) => v ? Colors.Red : Colors.White)
         }
         }.Padding(10);
 
