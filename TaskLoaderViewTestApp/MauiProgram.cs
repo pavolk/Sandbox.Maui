@@ -28,6 +28,7 @@ namespace TaskLoaderViewTestApp
             TaskMonitorConfiguration.LogStatistics = true;
 
             builder.Services.AddTransient<MasterPage, MasterPageViewModel>();
+            builder.Services.AddTransient<BaseAsyncPage, BaseAsyncViewModel>();
 
 
             return builder.Build();

@@ -6,6 +6,13 @@
     xmlns:local="clr-namespace:TaskLoaderViewTestApp"
     Shell.FlyoutBehavior="{OnPlatform WinUI=Locked, Default=Flyout}">
 
+    
+    
+    <ShellContent
+        Title="BaseAsyncPage"
+        ContentTemplate="{DataTemplate local:BaseAsyncPage}"
+        Route="BaseAsyncPage" />
+    
     <ShellContent
         Title="MasterPage"
         ContentTemplate="{DataTemplate local:MasterPage}"

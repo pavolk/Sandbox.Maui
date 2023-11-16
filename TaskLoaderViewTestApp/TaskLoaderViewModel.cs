@@ -20,6 +20,9 @@ namespace TaskLoaderViewTestApp
         public void OnDisappearing();
     }
 
+
+
+
     public partial class TaskLoaderViewModel<TData> : ObservableObject, ITaskLoaderViewModel<TData>
     {
         TaskLoaderNotifier<TData> _loader;

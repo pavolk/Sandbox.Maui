@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dynamicresources.app", "dyn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelerikMauiShellApp1", "TelerikMauiShellApp1\TelerikMauiShellApp1.csproj", "{AD41982A-900B-468A-9E0D-C83E2A000B70}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskLoaderViewTestApp", "TaskLoaderViewTestApp\TaskLoaderViewTestApp.csproj", "{9FA5F3DC-5241-47A8-90BD-A28CCE347562}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,8 +27,17 @@ Global
 		{AD41982A-900B-468A-9E0D-C83E2A000B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD41982A-900B-468A-9E0D-C83E2A000B70}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AD41982A-900B-468A-9E0D-C83E2A000B70}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9FA5F3DC-5241-47A8-90BD-A28CCE347562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FA5F3DC-5241-47A8-90BD-A28CCE347562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FA5F3DC-5241-47A8-90BD-A28CCE347562}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9FA5F3DC-5241-47A8-90BD-A28CCE347562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FA5F3DC-5241-47A8-90BD-A28CCE347562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FA5F3DC-5241-47A8-90BD-A28CCE347562}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDCF20BA-9293-4CC1-8DE5-A1B453C392DD}
 	EndGlobalSection
 EndGlobal
