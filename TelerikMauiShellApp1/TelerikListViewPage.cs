@@ -182,12 +182,16 @@ public partial class TelerikListViewPage : BaseContentPage
 
     #region data-service
 
+    int _dataLoadCount = 0;
+
     async Task<IEnumerable<Item>> LoadDataAsync(int skip, int take)
     {
         await Task.Delay(LOAD_DATA_DELAY_MILLIS);
-        if (_failOnNextLoadData) {
+        if (_failOnNextLoadData || _dataLoadCount == 0) {
+            _dataLoadCount++;
             throw new Exception("Loading data failed...");
         }
+
         return Enumerable.Range(skip, take).Select(i => new Item() {
             Name = $"Item-{i}",
             Group = $"Group-{i % 10}"
@@ -198,10 +202,12 @@ public partial class TelerikListViewPage : BaseContentPage
 
     public TelerikListViewPage()
 	{
-        Task.Run(() => LoadDataAsync(_skip, _take))
+        RunTask(() => LoadDataAsync(_skip, _take))
             .ContinueWith(_ => {
                 if (_.IsCompleted) {
                     Dispatcher.Dispatch(() => Build());
+                } else {
+                    Debug.WriteLine(_.Exception);
                 }
             });
     }
