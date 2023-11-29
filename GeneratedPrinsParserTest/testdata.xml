@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<prins version="3" created="28.11.2023 16:50:38">
+  <product id="272541">
+    <manufacturerAID>87654321 (1)</manufacturerAID>
+    <name>Prins de Luxe Hackbraten mit einem Schu� Cognac</name>
+    <identification>Hier steht die Verkehrsbezeichnung</identification>
+    <brand id="7101">Prins de Luxe</brand>
+    <actualisationDate>15.10.2007</actualisationDate>
+    <updateDate>28.11.2023</updateDate>
+    <expirationDate>28.12.2023</expirationDate>
+    <euFoodInfoCompliant>1</euFoodInfoCompliant>
+    <isReducedInfo>0</isReducedInfo>
+    <imageId>1640800</imageId>
+    <brandImageId>1641580</brandImageId>
+    <productCategory id="-14">Fleisch</productCategory>
+    <productSubCategory id="-84">Fleisch</productSubCategory>
+    <gtin>4006512004450</gtin>
+    <blsAID>Y038312</blsAID>
+    <blsName>Hackbraten (Standardrezeptur)</blsName>
+    <nutrientReferenceUnit>g</nutrientReferenceUnit>
+    <portionSize>125</portionSize>
+    <usedBlsNutrients>1</usedBlsNutrients>
+    <productId>272541</productId>
+    <storageType id="3">Trockenprodukt</storageType>
+    <minShelfLife>10 Monate</minShelfLife>
+    <remainingLife>12 Monate</remainingLife>
+    <isDirectDistribution>1</isDirectDistribution>
+    <isSpecializedWholesaleTrade>1</isSpecializedWholesaleTrade>
+    <isOnlineShopping>1</isOnlineShopping>
+    <isCashnCarry>1</isCashnCarry>
+    <manufacturerProductCategory>Spezialprodukte</manufacturerProductCategory>
+    <manufacturerProductSubCategory>Convenience Saucen</manufacturerProductSubCategory>
+    <infoURL>www.gv-prins.com</infoURL>
+    <servingImgId>1640840</servingImgId>
+    <unitPackEAN>40006538846500</unitPackEAN>
+    <singleUnitsPerTradingUnit>2</singleUnitsPerTradingUnit>
+    <creationDate>28.03.2008</creationDate>
+    <preparationInfo id="5">1. Fix f�r Hackbraten mit der entsprechenden Menge lauwarmem Wasser anr�hren
+2. das Hackfleisch hinzugeben und gut vermischen
+3. die Hackfleischmasse formen und entsprechend weiterverarbeiten</preparationInfo>
+    <gvoDeclaration id="10">Wir sichern zu, dass die von uns gelieferten Produkte gem. der Verordnung 1829/2003 �ber gentechnisch ver�nderte Lebens- und Futtermittel und gem. der Verordnung (EG) Nr. 1830/2003 �ber die R�ckverfolgbarkeit von aus gentechnisch ver�nderten Organismen hergestellten Lebensmitteln und Futtermitteln keine gentechnisch ver�nderten Organismen / Rohstoffe enthalten, aus solchen Organismen / Rohstoffen nicht bestehen und bei Ihrer Herstellung solche Organismen / Rohstoffe auch nicht eingesetzt werden.Wir sichern zu, dass die von uns gelieferten Produkte gem. der Verordnung 1829/2003 �ber gentechnisch ver�nderte Lebens- und Futtermittel und gem. der Verordnung (EG) Nr. 1830/2003 �ber die R�ckverfolgbarkeit von aus gentechnisch ver�nderten Organismen hergestellten Lebensmitteln und Futtermitteln keine gentechnisch ver�nderten Organismen / Rohstoffe enthalten, aus solchen Organismen / Rohstoffen nicht bestehen und bei Ihrer Herstellung solche Organismen / Rohstoffe auch nicht eingesetzt werden.</gvoDeclaration>
+    <nutrientAnnotation id="6">Hier k�nnen die N�hrwerte f�r das Fertigprodukt stehen.Erg�nzende Informationen N�hrwerte pro 100g Fertigprodukt: Kilojoule:184kJ Kilokalorien:44kcal Eiwei� ( Protein) :1,7g BE:0,46 Kohlenhydrate,resorbierbare:5,5g - davon Zucker:0,3g Fett:1,7g - davon ges�ttigte Fetts�uren:1g Ballaststoffe:0,1g Natrium:300mg BE:0,46 Cholesterin:0,7mg mehrfach unges�ttigte Fetts�uren:&lt;0,1mg ges�ttigte Fetts�uren:1mg Einfach unges�ttigte Fetts�uren:0,7mg</nutrientAnnotation>
+    <unitPack>
+      <contentInfo>Faltschachtel</contentInfo>
+      <dimension>195x294x164</dimension>
+      <grossWeight>ca. 3.000 g</grossWeight>
+      <grossWeightApprox>1</grossWeightApprox>
+      <grossWeightUnit>g</grossWeightUnit>
+      <grossWeightValue>3000</grossWeightValue>
+      <netWeight>ca. 2.975 g</netWeight>
+      <netWeightApprox>1</netWeightApprox>
+      <netWeightUnit>g</netWeightUnit>
+      <netWeightValue>2975</netWeightValue>
+      <drainWeight>2.930 g</drainWeight>
+      <drainWeightUnit>g</drainWeightUnit>
+      <drainWeightValue>2930</drainWeightValue>
+      <packagingWeight>25 g</packagingWeight>
+      <packagingWeightValue>25</packagingWeightValue>
+    </unitPack>
+    <tradingUnit>
+      <contentInfo>2 Faltschachteln � 3kg</contentInfo>
+      <dimension>398x294x164</dimension>
+      <type>Karton</type>
+      <grossWeight>ca. 6.050 g</grossWeight>
+      <grossWeightApprox>1</grossWeightApprox>
+      <grossWeightUnit>g</grossWeightUnit>
+      <grossWeightValue>6050</grossWeightValue>
+      <netWeight>ca. 5.950 g</netWeight>
+      <netWeightApprox>1</netWeightApprox>
+      <netWeightUnit>g</netWeightUnit>
+      <netWeightValue>5950</netWeightValue>
+      <drainWeight>5.900 g</drainWeight>
+      <drainWeightUnit>g</drainWeightUnit>
+      <drainWeightValue>5900</drainWeightValue>
+      <packagingWeight>100 g</packagingWeight>
+      <packagingWeightValue>100</packagingWeightValue>
+    </tradingUnit>
+    <palette>
+      <dimension>120x80x14,4</dimension>
+      <handling>Mehrweg</handling>
+      <tiersPerPalette>3</tiersPerPalette>
+      <type>Euro-Palette</type>
+      <unitsPerPalette>30</unitsPerPalette>
+      <unitsPerTier>10</unitsPerTier>
+      <totalWeightKG>209,5 kg</totalWeightKG>
+    </palette>
+    <commonInfo id="0">Binde- und Auflockerungsmittel auf Semmelbr�selbasis mit einer ausgewogenen W�rzmischung bestehend aus 9 Gew�rzen: Curcuma, Zwiebel, Majoran, Rosmarin, Knoblauch, Koriander, K�mmel, Pfeffer, Muskatnuss</commonInfo>
+    <ingredients id="4">Paniermehl (Weizenmehl, Speisesalz), Speisesalz, Zwiebeln, pflanzliches Fett, Eiklarpulver, Kr�uter, Curcuma, Majoran, Rosmarin, Knoblauch, Koriander, K�mmel, Paprika, Pfeffer, Muskatnuss, Verdickungsmittel Cellulose (E460), Pektine (E440), S�ureregulator Natriumcitrate (E331), Emulgator Mono- und Diacetylweins�ureester von Mono- und Diglyceriden von Speisefetts�uren (E472e)</ingredients>
+    <storageInstruction id="3">Packung k�hl und trocken lagern.</storageInstruction>
+    <techData id="2">in Alu-Schutzh�lle
+nicht einfrieren</techData>
+    <dataProducer id="12800">
+      <producerName>Prins Food Service Berlin GmbH</producerName>
+      <producerName2>Hersteller</producerName2>
+      <shortName>Testpdb</shortName>
+      <shopURL>www.sellyorder.de</shopURL>
+      <producerId>12800</producerId>
+      <contactFirstname>Ronald</contactFirstname>
+      <contactName>Thoms</contactName>
+      <contactSalutation>Herr</contactSalutation>
+      <contactFunction>Vertriebsleiter</contactFunction>
+      <imageId>1640880</imageId>
+      <address id="80941">
+        <countryCode>D</countryCode>
+        <city>Berlin</city>
+        <pobox>12345</pobox>
+        <zipCode>10365</zipCode>
+        <street>Josef-Orlopp-Stra�e 38</street>
+        <email>info@selly.biz</email>
+        <fax>030/55 69 96 70</fax>
+        <phone>030/55 69 96 55</phone>
+        <www>www.selly.biz</www>
+      </address>
+    </dataProducer>
+    <manufacturer id="12800">
+      <manufacturerName>Prins Food Service Berlin GmbH</manufacturerName>
+      <manufacturerName2>Hersteller</manufacturerName2>
+      <manufacturerShortName>Testpdb</manufacturerShortName>
+      <shopURL>www.sellyorder.de</shopURL>
+      <manufacturerId>12800</manufacturerId>
+      <contactFirstname>Ronald</contactFirstname>
+      <contactName>Thoms</contactName>
+      <contactSalutation>Herr</contactSalutation>
+      <contactFunction>Vertriebsleiter</contactFunction>
+      <imageId>1640880</imageId>
+      <address id="80941">
+        <countryCode>D</countryCode>
+        <city>Berlin</city>
+        <pobox>12345</pobox>
+        <zipCode>10365</zipCode>
+        <street>Josef-Orlopp-Stra�e 38</street>
+        <email>info@selly.biz</email>
+        <fax>030/55 69 96 70</fax>
+        <phone>030/55 69 96 55</phone>
+        <www>www.selly.biz</www>
+      </address>
+      <certifications>
+        <certification id="10660">
+          <text>PRINS</text>
+          <group>test</group>
+        </certification>
+        <certification id="8320">
+          <text>selly.biz</text>
+          <group>test</group>
+          <imageId>2224120</imageId>
+        </certification>
+      </certifications>
+      <glns>
+        <gln>0000096579873</gln>
+        <gln>0000097899879</gln>
+        <gln>0000099879865</gln>
+        <gln>0000099879879</gln>
+      </glns>
+    </manufacturer>
+    <allergens>
+      <allergen id="1000">
+        <shortName>Gluten</shortName>
+        <name>Glutenhaltiges Getreide sowie daraus hergestellte Erzeugnisse</name>
+        <flag>0</flag>
+        <info>kann in Spuren enthalten sein</info>
+        <text>ja (kann in Spuren enthalten sein)</text>
+        <remark>Glutenhaltiges Getreide (Weizen, Roggen, Gerste, Hafer, Dinkel, Kamut oder Hybridst�mme davon) sowie daraus hergestellte Erzeugnisse</remark>
+      </allergen>
+      <allergen id="1107">
+        <shortName>Weizen</shortName>
+        <name>Weizen-Glutenhaltiges Getreide oder Hybridst�mme sowie daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1108">
+        <shortName>Roggen</shortName>
+        <name>Roggen-Glutenhaltiges Getreide oder Hybridst�mme sowie daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1138">
+        <shortName>Gerste</shortName>
+        <name>Gerste-Glutenhaltiges Getreide oder Hybridst�mme sowie daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1139">
+        <shortName>Hafer</shortName>
+        <name>Hafer-Glutenhaltiges Getreide sowie daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1140">
+        <shortName>Dinkel</shortName>
+        <name>Dinkel-Glutenhaltiges Getreide oder Hybridst�mme sowie daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1141">
+        <shortName>Kamut</shortName>
+        <name>Kamut-Glutenhaltiges Getreide oder Hybridst�mme sowie daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1001">
+        <shortName>Krebse</shortName>
+        <name>Krebstiere und daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1002">
+        <shortName>Eier</shortName>
+        <name>Eier und daraus hergestellte Erzeugnisse</name>
+        <flag>0</flag>
+        <text>ja</text>
+      </allergen>
+      <allergen id="1003">
+        <shortName>Fisch</shortName>
+        <name>Fisch und daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1004">
+        <shortName>Erdn�sse</shortName>
+        <name>Erdn�sse und daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1005">
+        <shortName>Soja</shortName>
+        <name>Soja und daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1006">
+        <shortName>Milch</shortName>
+        <name>Milch und daraus hergestellte Erzeugnisse / inkl.Lactose</name>
+        <flag>1</flag>
+        <text>nein</text>
+        <remark>Milch und daraus hergestellte Erzeugnisse (einschlie�lich Laktose)</remark>
+      </allergen>
+      <allergen id="1007">
+        <shortName>N�sse</shortName>
+        <name>Schalenfr�chte und daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+        <remark>Schalenfr�chte (Mandel (Amygdalus communis L.), Haselnuss (Corylus avellana), Walnuss (Juglans regia), Kaschunuss (Anacardium occidentale), Pecannuss (Carya illinoesis (Wangenh.) K. Koch), Paranuss (Bertholletia excelsa), Pistazie (Pistacia vera), Macadamianuss und Queenslandnuss (Macadamia ternifolia)) sowie daraus hergestellte Erzeugnisse</remark>
+      </allergen>
+      <allergen id="1143">
+        <shortName>Mandeln</shortName>
+        <name>Mandeln und daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1144">
+        <shortName>Haseln�sse</shortName>
+        <name>Haseln�sse und daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1145">
+        <shortName>Waln�sse</shortName>
+        <name>Waln�sse und daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1146">
+        <shortName>Kaschun�sse</shortName>
+        <name>Kaschun�sse und daraus hergestellte Erzeugnisse</name>
+        <flag>0</flag>
+        <text>ja</text>
+      </allergen>
+      <allergen id="1147">
+        <shortName>Pekan�sse</shortName>
+        <name>Pekann�sse und daraus hergestellte Erzeugnisse</name>
+        <flag>0</flag>
+        <text>ja</text>
+      </allergen>
+      <allergen id="1148">
+        <shortName>Paran�sse</shortName>
+        <name>Paran�sse und daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1149">
+        <shortName>Pistazien</shortName>
+        <name>Pistazien und daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1150">
+        <shortName>Macadamian�sse</shortName>
+        <name>Macadamian�sse und daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1151">
+        <shortName>Queenslandn�sse</shortName>
+        <name>Queenslandn�sse und daraus hergestellte Erzeugnisse</name>
+        <flag>-1</flag>
+        <text>n/a</text>
+      </allergen>
+      <allergen id="1008">
+        <shortName>Sellerie</shortName>
+        <name>Sellerie und daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1009">
+        <shortName>Senf</shortName>
+        <name>Senf und daraus hergestellte Erzeugnisse</name>
+        <flag>0</flag>
+        <info>kann in Spuren enthalten sein</info>
+        <text>ja (kann in Spuren enthalten sein)</text>
+      </allergen>
+      <allergen id="1010">
+        <shortName>Sesam</shortName>
+        <name>Sesamsamen und daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1011">
+        <shortName>SO2</shortName>
+        <name>Schwefeldioxid und Sulfite in einer Konzentration von mehr als 10 mg/kg oder 10 mg/l, als SO2 angegeben</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1012">
+        <shortName>Lupine</shortName>
+        <name>Lupine sowie daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1013">
+        <shortName>Muscheln</shortName>
+        <name>Weichtiere sowie daraus hergestellte Erzeugnisse</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+    </allergens>
+    <nutrients>
+      <nutrient id="GCAL">
+        <code>GCAL</code>
+        <name>Energie (Kilokalorien)</name>
+        <euName>Energie</euName>
+        <unit>kcal</unit>
+        <value>163</value>
+        <text>163 kcal</text>
+        <portionValue>203.75</portionValue>
+      </nutrient>
+      <nutrient id="GJ">
+        <code>GJ</code>
+        <name>Energie (Kilojoule)</name>
+        <euName>Energie</euName>
+        <unit>kJ</unit>
+        <value>684</value>
+        <text>684 kJ</text>
+        <portionValue>855</portionValue>
+      </nutrient>
+      <nutrient id="ZF">
+        <code>ZF</code>
+        <name>Fett</name>
+        <euName>Fett</euName>
+        <unit>g</unit>
+        <value>10.407</value>
+        <text>10,407 g</text>
+        <rdaPercentage>5</rdaPercentage>
+        <portionValue>13.009</portionValue>
+      </nutrient>
+      <nutrient id="FS">
+        <code>FS</code>
+        <name>Ges�ttigte Fetts�uren</name>
+        <euName>- davon ges�ttigte Fetts�uren</euName>
+        <unit>g</unit>
+        <value>4.061</value>
+        <text>4,061 g</text>
+        <portionValue>5.076</portionValue>
+      </nutrient>
+      <nutrient id="ZK">
+        <code>ZK</code>
+        <name>Kohlenhydrate, resorbierbar</name>
+        <euName>Kohlenhydrate</euName>
+        <unit>g</unit>
+        <value>4.781</value>
+        <text>4,781 g</text>
+        <rdaPercentage>3</rdaPercentage>
+        <portionValue>5.976</portionValue>
+      </nutrient>
+      <nutrient id="KMD">
+        <code>KMD</code>
+        <name>Zucker (gesamt)</name>
+        <euName>- davon Zucker</euName>
+        <unit>g</unit>
+        <value>0.663</value>
+        <text>0,663 g</text>
+        <rdaPercentage>8</rdaPercentage>
+        <portionValue>0.829</portionValue>
+      </nutrient>
+      <nutrient id="ZB">
+        <code>ZB</code>
+        <name>Ballaststoffe</name>
+        <euName>Ballaststoffe</euName>
+        <unit>g</unit>
+        <value>0.385</value>
+        <text>0,385 g</text>
+        <portionValue>0.481</portionValue>
+      </nutrient>
+      <nutrient id="ZE">
+        <code>ZE</code>
+        <name>Eiwei� (Protein)</name>
+        <euName>Eiwei�</euName>
+        <unit>g</unit>
+        <value>12.82</value>
+        <text>12,82 g</text>
+        <rdaPercentage>12</rdaPercentage>
+        <portionValue>16.025</portionValue>
+      </nutrient>
+      <nutrient id="GMKO">
+        <code>GMKO</code>
+        <name>Gesamt-Kochsalz</name>
+        <euName>Salz</euName>
+        <unit>g</unit>
+        <value>0.733</value>
+        <text>0,733 g</text>
+        <portionValue>0.916</portionValue>
+      </nutrient>
+      <nutrient id="VA">
+        <code>VA</code>
+        <name>Vitamin A - Retinol�quivalent</name>
+        <euName>Vitamin A - Retinol�quivalent</euName>
+        <unit>�g</unit>
+        <value>48</value>
+        <text>48 �g</text>
+        <rda>800</rda>
+        <rdaPercentage>0.125</rdaPercentage>
+        <portionValue>60</portionValue>
+      </nutrient>
+      <nutrient id="MNA">
+        <code>MNA</code>
+        <name>Natrium</name>
+        <euName>Natrium</euName>
+        <unit>g</unit>
+        <value>0.288</value>
+        <text>0,288 g</text>
+        <portionValue>0.36</portionValue>
+      </nutrient>
+      <nutrientAnnotation id="6">Hier k�nnen die N�hrwerte f�r das Fertigprodukt stehen.Erg�nzende Informationen N�hrwerte pro 100g Fertigprodukt: Kilojoule:184kJ Kilokalorien:44kcal Eiwei� ( Protein) :1,7g BE:0,46 Kohlenhydrate,resorbierbare:5,5g - davon Zucker:0,3g Fett:1,7g - davon ges�ttigte Fetts�uren:1g Ballaststoffe:0,1g Natrium:300mg BE:0,46 Cholesterin:0,7mg mehrfach unges�ttigte Fetts�uren:&lt;0,1mg ges�ttigte Fetts�uren:1mg Einfach unges�ttigte Fetts�uren:0,7mg</nutrientAnnotation>
+    </nutrients>
+    <additiveLabels>
+      <additiveLabel id="5087">Mit Alkohol</additiveLabel>
+      <additiveLabel id="301">mit Farbstoff</additiveLabel>
+      <additiveLabel id="314">mit Eiklar</additiveLabel>
+    </additiveLabels>
+    <additives>
+      <additive id="821">
+        <additiveName>Pektine</additiveName>
+        <additiveNumber>E440a</additiveNumber>
+      </additive>
+      <additive id="830">
+        <additiveClass id="E">Emulgator</additiveClass>
+        <additiveName>Mono- und Diacetylweins�ureester von Mono- und Diglyceriden von Speisefetts�uren</additiveName>
+        <additiveNumber>E472e</additiveNumber>
+      </additive>
+      <additive id="609">
+        <additiveClass id="SR">S�ureregulator</additiveClass>
+        <additiveName>Natriumcitrate</additiveName>
+        <additiveNumber>E331</additiveNumber>
+      </additive>
+      <additive id="664">
+        <additiveClass id="VM">Verdickungsmittel</additiveClass>
+        <additiveName>Cellulose</additiveName>
+        <additiveNumber>E460</additiveNumber>
+      </additive>
+    </additives>
+    <additionalProductInfos>
+      <productInfo id="688860">
+        <name>Fangzone</name>
+        <info>21.4</info>
+        <comment>Nord-West Atalantik</comment>
+        <type>155</type>
+      </productInfo>
+      <productInfo id="688861">
+        <name>Herkunftsort</name>
+        <info>Berlin</info>
+        <type>151</type>
+      </productInfo>
+      <productInfo id="688862">
+        <name>Ursprungsland</name>
+        <info>DE</info>
+        <comment>Deutschland</comment>
+        <type>150</type>
+      </productInfo>
+      <productInfo id="6111008">
+        <name>Ursprungsland</name>
+        <info>BE</info>
+        <comment>Belgien</comment>
+        <seq>1</seq>
+        <type>150</type>
+      </productInfo>
+      <productInfo id="6111007">
+        <name>Fangger�t</name>
+        <comment>Hebenetze - Portabel</comment>
+        <type>161</type>
+      </productInfo>
+      <productInfo id="11081">
+        <name>Volumen %</name>
+        <info>3,5</info>
+      </productInfo>
+      <productInfo id="11080">
+        <name>% Fett i. Tr. </name>
+        <info>10,5</info>
+        <comment>durchschnittlich</comment>
+      </productInfo>
+    </additionalProductInfos>
+    <userSpecificInfos>
+      <userSpecificInfo id="511016">
+        <type>8</type>
+        <header>Ergiebigkeit</header>
+        <text>Produkt  - Wasser - Hackfleisch - Portionen � 150g
+180.0 g - 0.25 l - 1.0 kg -
+1000.0 g - 1.33 l - 5.5 kg
+1000.0 g - 2.75 l - 11.0 kg
+3000.0 g - 4.25 l - 16.5 kg</text>
+      </userSpecificInfo>
+      <userSpecificInfo id="511017">
+        <type>8</type>
+        <header>K�chenfachlicher Hinweis</header>
+        <text>Fix f�r Hackbraten eignet sich auch hervorragend f�r die Zubereitung von Frikadellen, Hacksteaks, Klopse, Kohlrouladen, gef�llte Paprika und �hnliche Gerichte.</text>
+        <seq>1</seq>
+      </userSpecificInfo>
+    </userSpecificInfos>
+    <dietTypes>
+      <dietType id="5806">
+        <dietType>cholesterinfrei</dietType>
+        <imageId>1640900</imageId>
+      </dietType>
+      <dietType id="201">
+        <dietType>Vollkost</dietType>
+      </dietType>
+      <dietType id="5015">
+        <dietType>PRINS Reduktionskost</dietType>
+        <imageId>1640960</imageId>
+      </dietType>
+    </dietTypes>
+    <allergens2>
+      <allergen id="1102">
+        <shortName>Laktose</shortName>
+        <name>Milchzucker (Laktose)</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1115">
+        <shortName>Kakao</shortName>
+        <name>Kakao</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1124">
+        <shortName>Glutamat</shortName>
+        <name>Glutamat (E620 - E625)</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1111">
+        <shortName>Huhn</shortName>
+        <name>H�hnerfleisch</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1131">
+        <shortName>Koriander</shortName>
+        <name>Koriander</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1114">
+        <shortName>Mais</shortName>
+        <name>Mais</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1117">
+        <shortName>H�lsenfr�chte</shortName>
+        <name>H�lsenfr�chte</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1109">
+        <shortName>Rind</shortName>
+        <name>Rindfleisch</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1110">
+        <shortName>Schwein</shortName>
+        <name>Schweinefleisch</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1134">
+        <shortName>Karotte</shortName>
+        <name>Karotte</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+      <allergen id="1105">
+        <name>Sojalecithin</name>
+        <flag>1</flag>
+        <text>nein</text>
+      </allergen>
+    </allergens2>
+    <productCertifications>
+      <productCertification id="6041">
+        <text>Blauer Engel</text>
+        <group>Jury-Umweltzeichen</group>
+        <imageId>1640982</imageId>
+      </productCertification>
+      <productCertification id="6060">
+        <text>MSC zertifiziert</text>
+        <group>Produktsiegel</group>
+        <imageId>1641021</imageId>
+      </productCertification>
+      <productCertification id="5966">
+        <text>�kologischer Landbau - ECOVIN</text>
+        <group>Dt. Verbandssiegel</group>
+        <imageId>1640983</imageId>
+      </productCertification>
+    </productCertifications>
+    <gtins>
+      <gtin>4006512004466</gtin>
+      <gtin>4006512854455</gtin>
+    </gtins>
+    <supplierData>
+      <supplierAID>15324</supplierAID>
+      <supplierAID2>001-15324-AF</supplierAID2>
+    </supplierData>
+  </product>
+</prins>

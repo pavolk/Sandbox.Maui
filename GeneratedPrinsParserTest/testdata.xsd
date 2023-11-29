@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="prins">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="product">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="manufacturerAID" type="xs:string" />
+                            <xs:element name="name" type="xs:string" />
+                            <xs:element name="identification" type="xs:string" />
+                            <xs:element name="brand">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="actualisationDate" type="xs:string" />
+                            <xs:element name="updateDate" type="xs:string" />
+                            <xs:element name="expirationDate" type="xs:string" />
+                            <xs:element name="euFoodInfoCompliant" type="xs:unsignedByte" />
+                            <xs:element name="isReducedInfo" type="xs:unsignedByte" />
+                            <xs:element name="imageId" type="xs:unsignedInt" />
+                            <xs:element name="brandImageId" type="xs:unsignedInt" />
+                            <xs:element name="productCategory">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:byte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="productSubCategory">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:byte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="gtin" type="xs:unsignedLong" />
+                            <xs:element name="blsAID" type="xs:string" />
+                            <xs:element name="blsName" type="xs:string" />
+                            <xs:element name="nutrientReferenceUnit" type="xs:string" />
+                            <xs:element name="portionSize" type="xs:unsignedByte" />
+                            <xs:element name="usedBlsNutrients" type="xs:unsignedByte" />
+                            <xs:element name="productId" type="xs:unsignedInt" />
+                            <xs:element name="storageType">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="minShelfLife" type="xs:string" />
+                            <xs:element name="remainingLife" type="xs:string" />
+                            <xs:element name="isDirectDistribution" type="xs:unsignedByte" />
+                            <xs:element name="isSpecializedWholesaleTrade" type="xs:unsignedByte" />
+                            <xs:element name="isOnlineShopping" type="xs:unsignedByte" />
+                            <xs:element name="isCashnCarry" type="xs:unsignedByte" />
+                            <xs:element name="manufacturerProductCategory" type="xs:string" />
+                            <xs:element name="manufacturerProductSubCategory" type="xs:string" />
+                            <xs:element name="infoURL" type="xs:string" />
+                            <xs:element name="servingImgId" type="xs:unsignedInt" />
+                            <xs:element name="unitPackEAN" type="xs:unsignedLong" />
+                            <xs:element name="singleUnitsPerTradingUnit" type="xs:unsignedByte" />
+                            <xs:element name="creationDate" type="xs:string" />
+                            <xs:element name="preparationInfo">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="gvoDeclaration">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="nutrientAnnotation">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="unitPack">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="contentInfo" type="xs:string" />
+                                        <xs:element name="dimension" type="xs:string" />
+                                        <xs:element name="grossWeight" type="xs:string" />
+                                        <xs:element name="grossWeightApprox" type="xs:unsignedByte" />
+                                        <xs:element name="grossWeightUnit" type="xs:string" />
+                                        <xs:element name="grossWeightValue" type="xs:unsignedShort" />
+                                        <xs:element name="netWeight" type="xs:string" />
+                                        <xs:element name="netWeightApprox" type="xs:unsignedByte" />
+                                        <xs:element name="netWeightUnit" type="xs:string" />
+                                        <xs:element name="netWeightValue" type="xs:unsignedShort" />
+                                        <xs:element name="drainWeight" type="xs:string" />
+                                        <xs:element name="drainWeightUnit" type="xs:string" />
+                                        <xs:element name="drainWeightValue" type="xs:unsignedShort" />
+                                        <xs:element name="packagingWeight" type="xs:string" />
+                                        <xs:element name="packagingWeightValue" type="xs:unsignedByte" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="tradingUnit">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="contentInfo" type="xs:string" />
+                                        <xs:element name="dimension" type="xs:string" />
+                                        <xs:element name="type" type="xs:string" />
+                                        <xs:element name="grossWeight" type="xs:string" />
+                                        <xs:element name="grossWeightApprox" type="xs:unsignedByte" />
+                                        <xs:element name="grossWeightUnit" type="xs:string" />
+                                        <xs:element name="grossWeightValue" type="xs:unsignedShort" />
+                                        <xs:element name="netWeight" type="xs:string" />
+                                        <xs:element name="netWeightApprox" type="xs:unsignedByte" />
+                                        <xs:element name="netWeightUnit" type="xs:string" />
+                                        <xs:element name="netWeightValue" type="xs:unsignedShort" />
+                                        <xs:element name="drainWeight" type="xs:string" />
+                                        <xs:element name="drainWeightUnit" type="xs:string" />
+                                        <xs:element name="drainWeightValue" type="xs:unsignedShort" />
+                                        <xs:element name="packagingWeight" type="xs:string" />
+                                        <xs:element name="packagingWeightValue" type="xs:unsignedByte" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="palette">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dimension" type="xs:string" />
+                                        <xs:element name="handling" type="xs:string" />
+                                        <xs:element name="tiersPerPalette" type="xs:unsignedByte" />
+                                        <xs:element name="type" type="xs:string" />
+                                        <xs:element name="unitsPerPalette" type="xs:unsignedByte" />
+                                        <xs:element name="unitsPerTier" type="xs:unsignedByte" />
+                                        <xs:element name="totalWeightKG" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="commonInfo">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ingredients">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="storageInstruction">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="techData">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="dataProducer">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="producerName" type="xs:string" />
+                                        <xs:element name="producerName2" type="xs:string" />
+                                        <xs:element name="shortName" type="xs:string" />
+                                        <xs:element name="shopURL" type="xs:string" />
+                                        <xs:element name="producerId" type="xs:unsignedShort" />
+                                        <xs:element name="contactFirstname" type="xs:string" />
+                                        <xs:element name="contactName" type="xs:string" />
+                                        <xs:element name="contactSalutation" type="xs:string" />
+                                        <xs:element name="contactFunction" type="xs:string" />
+                                        <xs:element name="imageId" type="xs:unsignedInt" />
+                                        <xs:element name="address">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="countryCode" type="xs:string" />
+                                                    <xs:element name="city" type="xs:string" />
+                                                    <xs:element name="pobox" type="xs:unsignedShort" />
+                                                    <xs:element name="zipCode" type="xs:unsignedShort" />
+                                                    <xs:element name="street" type="xs:string" />
+                                                    <xs:element name="email" type="xs:string" />
+                                                    <xs:element name="fax" type="xs:string" />
+                                                    <xs:element name="phone" type="xs:string" />
+                                                    <xs:element name="www" type="xs:string" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="manufacturer">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="manufacturerName" type="xs:string" />
+                                        <xs:element name="manufacturerName2" type="xs:string" />
+                                        <xs:element name="manufacturerShortName" type="xs:string" />
+                                        <xs:element name="shopURL" type="xs:string" />
+                                        <xs:element name="manufacturerId" type="xs:unsignedShort" />
+                                        <xs:element name="contactFirstname" type="xs:string" />
+                                        <xs:element name="contactName" type="xs:string" />
+                                        <xs:element name="contactSalutation" type="xs:string" />
+                                        <xs:element name="contactFunction" type="xs:string" />
+                                        <xs:element name="imageId" type="xs:unsignedInt" />
+                                        <xs:element name="address">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="countryCode" type="xs:string" />
+                                                    <xs:element name="city" type="xs:string" />
+                                                    <xs:element name="pobox" type="xs:unsignedShort" />
+                                                    <xs:element name="zipCode" type="xs:unsignedShort" />
+                                                    <xs:element name="street" type="xs:string" />
+                                                    <xs:element name="email" type="xs:string" />
+                                                    <xs:element name="fax" type="xs:string" />
+                                                    <xs:element name="phone" type="xs:string" />
+                                                    <xs:element name="www" type="xs:string" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="certifications">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="unbounded" name="certification">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="text" type="xs:string" />
+                                                                <xs:element name="group" type="xs:string" />
+                                                                <xs:element minOccurs="0" name="imageId" type="xs:unsignedInt" />
+                                                            </xs:sequence>
+                                                            <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="glns">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="unbounded" name="gln" type="xs:unsignedInt" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="allergens">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="allergen">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="shortName" type="xs:string" />
+                                                    <xs:element name="name" type="xs:string" />
+                                                    <xs:element name="flag" type="xs:byte" />
+                                                    <xs:element minOccurs="0" name="info" type="xs:string" />
+                                                    <xs:element name="text" type="xs:string" />
+                                                    <xs:element minOccurs="0" name="remark" type="xs:string" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="nutrients">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="nutrient">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="code" type="xs:string" />
+                                                    <xs:element name="name" type="xs:string" />
+                                                    <xs:element name="euName" type="xs:string" />
+                                                    <xs:element name="unit" type="xs:string" />
+                                                    <xs:element name="value" type="xs:decimal" />
+                                                    <xs:element name="text" type="xs:string" />
+                                                    <xs:element minOccurs="0" name="rda" type="xs:unsignedShort" />
+                                                    <xs:element minOccurs="0" name="rdaPercentage" type="xs:decimal" />
+                                                    <xs:element name="portionValue" type="xs:decimal" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:string" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="nutrientAnnotation">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="additiveLabels">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="additiveLabel">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="additives">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="additive">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element minOccurs="0" name="additiveClass">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="id" type="xs:string" use="required" />
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="additiveName" type="xs:string" />
+                                                    <xs:element name="additiveNumber" type="xs:string" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="additionalProductInfos">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="productInfo">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="name" type="xs:string" />
+                                                    <xs:element minOccurs="0" name="info" type="xs:string" />
+                                                    <xs:element minOccurs="0" name="comment" type="xs:string" />
+                                                    <xs:element minOccurs="0" name="seq" type="xs:unsignedByte" />
+                                                    <xs:element minOccurs="0" name="type" type="xs:unsignedByte" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="userSpecificInfos">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="userSpecificInfo">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="type" type="xs:unsignedByte" />
+                                                    <xs:element name="header" type="xs:string" />
+                                                    <xs:element name="text" type="xs:string" />
+                                                    <xs:element minOccurs="0" name="seq" type="xs:unsignedByte" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="dietTypes">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="dietType">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="dietType" type="xs:string" />
+                                                    <xs:element minOccurs="0" name="imageId" type="xs:unsignedInt" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="allergens2">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="allergen">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element minOccurs="0" name="shortName" type="xs:string" />
+                                                    <xs:element name="name" type="xs:string" />
+                                                    <xs:element name="flag" type="xs:unsignedByte" />
+                                                    <xs:element name="text" type="xs:string" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="productCertifications">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="productCertification">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="text" type="xs:string" />
+                                                    <xs:element name="group" type="xs:string" />
+                                                    <xs:element name="imageId" type="xs:unsignedInt" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="gtins">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="gtin" type="xs:unsignedLong" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="supplierData">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="supplierAID" type="xs:unsignedShort" />
+                                        <xs:element name="supplierAID2" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:unsignedByte" use="required" />
+            <xs:attribute name="created" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
