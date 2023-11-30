@@ -8,12 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model.cs" />
+    <Compile Remove="Prins.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="testdata.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="XmlSchemaClassGenerator.Console" Version="2.1.963" />
   </ItemGroup>
 

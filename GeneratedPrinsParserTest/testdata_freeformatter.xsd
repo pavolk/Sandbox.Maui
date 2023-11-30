@@ -1,0 +1,579 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="contentInfo" type="xs:string"/>
+  <xs:element name="dimension" type="xs:string"/>
+  <xs:element name="grossWeight" type="xs:string"/>
+  <xs:element name="grossWeightApprox" type="xs:byte"/>
+  <xs:element name="grossWeightUnit" type="xs:string"/>
+  <xs:element name="grossWeightValue" type="xs:short"/>
+  <xs:element name="netWeight" type="xs:string"/>
+  <xs:element name="netWeightApprox" type="xs:byte"/>
+  <xs:element name="netWeightUnit" type="xs:string"/>
+  <xs:element name="netWeightValue" type="xs:short"/>
+  <xs:element name="drainWeight" type="xs:string"/>
+  <xs:element name="drainWeightUnit" type="xs:string"/>
+  <xs:element name="drainWeightValue" type="xs:short"/>
+  <xs:element name="packagingWeight" type="xs:string"/>
+  <xs:element name="packagingWeightValue" type="xs:byte"/>
+  <xs:element name="type" type="xs:string"/>
+  <xs:element name="handling" type="xs:string"/>
+  <xs:element name="tiersPerPalette" type="xs:byte"/>
+  <xs:element name="unitsPerPalette" type="xs:byte"/>
+  <xs:element name="unitsPerTier" type="xs:byte"/>
+  <xs:element name="totalWeightKG" type="xs:string"/>
+  <xs:element name="countryCode" type="xs:string"/>
+  <xs:element name="city" type="xs:string"/>
+  <xs:element name="pobox" type="xs:short"/>
+  <xs:element name="zipCode" type="xs:short"/>
+  <xs:element name="street" type="xs:string"/>
+  <xs:element name="email" type="xs:string"/>
+  <xs:element name="fax" type="xs:string"/>
+  <xs:element name="phone" type="xs:string"/>
+  <xs:element name="www" type="xs:anyURI"/>
+  <xs:element name="producerName" type="xs:string"/>
+  <xs:element name="producerName2" type="xs:string"/>
+  <xs:element name="shortName" type="xs:string"/>
+  <xs:element name="shopURL" type="xs:anyURI"/>
+  <xs:element name="producerId" type="xs:short"/>
+  <xs:element name="contactFirstname" type="xs:string"/>
+  <xs:element name="contactName" type="xs:string"/>
+  <xs:element name="contactSalutation" type="xs:string"/>
+  <xs:element name="contactFunction" type="xs:string"/>
+  <xs:element name="imageId" type="xs:int"/>
+  <xs:element name="address">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="countryCode"/>
+        <xs:element ref="city"/>
+        <xs:element ref="pobox"/>
+        <xs:element ref="zipCode"/>
+        <xs:element ref="street"/>
+        <xs:element ref="email"/>
+        <xs:element ref="fax"/>
+        <xs:element ref="phone"/>
+        <xs:element ref="www"/>
+      </xs:sequence>
+      <xs:attribute type="xs:int" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="text" type="xs:string"/>
+  <xs:element name="group" type="xs:string"/>
+  <xs:element name="certification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="text"/>
+        <xs:element ref="group"/>
+        <xs:element ref="imageId" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:short" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gln" type="xs:int"/>
+  <xs:element name="manufacturerName" type="xs:string"/>
+  <xs:element name="manufacturerName2" type="xs:string"/>
+  <xs:element name="manufacturerShortName" type="xs:string"/>
+  <xs:element name="manufacturerId" type="xs:short"/>
+  <xs:element name="certifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="certification" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="glns">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="gln" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="flag" type="xs:byte"/>
+  <xs:element name="info" type="xs:string"/>
+  <xs:element name="remark" type="xs:string"/>
+  <xs:element name="allergen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="shortName" minOccurs="0"/>
+        <xs:element ref="name"/>
+        <xs:element ref="flag"/>
+        <xs:element ref="info" minOccurs="0"/>
+        <xs:element ref="text"/>
+        <xs:element ref="remark" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:short" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="code" type="xs:string"/>
+  <xs:element name="euName" type="xs:string"/>
+  <xs:element name="unit" type="xs:string"/>
+  <xs:element name="value" type="xs:float"/>
+  <xs:element name="portionValue" type="xs:float"/>
+  <xs:element name="rdaPercentage" type="xs:float"/>
+  <xs:element name="rda" type="xs:short"/>
+  <xs:element name="nutrient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="code"/>
+        <xs:element ref="name"/>
+        <xs:element ref="euName"/>
+        <xs:element ref="unit"/>
+        <xs:element ref="value"/>
+        <xs:element ref="text"/>
+        <xs:element ref="rda" minOccurs="0"/>
+        <xs:element ref="rdaPercentage" minOccurs="0"/>
+        <xs:element ref="portionValue"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nutrientAnnotation">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="additiveLabel">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:short" name="id" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="additiveName" type="xs:string"/>
+  <xs:element name="additiveNumber" type="xs:string"/>
+  <xs:element name="additiveClass">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="id" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="additive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="additiveClass" minOccurs="0"/>
+        <xs:element ref="additiveName"/>
+        <xs:element ref="additiveNumber"/>
+      </xs:sequence>
+      <xs:attribute type="xs:short" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="comment" type="xs:string"/>
+  <xs:element name="seq" type="xs:byte"/>
+  <xs:element name="productInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="info" minOccurs="0"/>
+        <xs:element ref="comment" minOccurs="0"/>
+        <xs:element ref="seq" minOccurs="0"/>
+        <xs:element ref="type" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:int" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="header" type="xs:string"/>
+  <xs:element name="userSpecificInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="type"/>
+        <xs:element ref="header"/>
+        <xs:element ref="text"/>
+        <xs:element ref="seq" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:int" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dietType">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="dietType" minOccurs="0"/>
+        <xs:element ref="imageId" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:short" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="productCertification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="text"/>
+        <xs:element ref="group"/>
+        <xs:element ref="imageId"/>
+      </xs:sequence>
+      <xs:attribute type="xs:short" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gtin" type="xs:long"/>
+  <xs:element name="supplierAID" type="xs:short"/>
+  <xs:element name="supplierAID2" type="xs:string"/>
+  <xs:element name="manufacturerAID" type="xs:string"/>
+  <xs:element name="identification" type="xs:string"/>
+  <xs:element name="brand">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:short" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualisationDate" type="xs:string"/>
+  <xs:element name="updateDate" type="xs:string"/>
+  <xs:element name="expirationDate" type="xs:string"/>
+  <xs:element name="euFoodInfoCompliant" type="xs:byte"/>
+  <xs:element name="isReducedInfo" type="xs:byte"/>
+  <xs:element name="brandImageId" type="xs:int"/>
+  <xs:element name="productCategory">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="productSubCategory">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="blsAID" type="xs:string"/>
+  <xs:element name="blsName" type="xs:string"/>
+  <xs:element name="nutrientReferenceUnit" type="xs:string"/>
+  <xs:element name="portionSize" type="xs:byte"/>
+  <xs:element name="usedBlsNutrients" type="xs:byte"/>
+  <xs:element name="productId" type="xs:int"/>
+  <xs:element name="storageType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="minShelfLife" type="xs:string"/>
+  <xs:element name="remainingLife" type="xs:string"/>
+  <xs:element name="isDirectDistribution" type="xs:byte"/>
+  <xs:element name="isSpecializedWholesaleTrade" type="xs:byte"/>
+  <xs:element name="isOnlineShopping" type="xs:byte"/>
+  <xs:element name="isCashnCarry" type="xs:byte"/>
+  <xs:element name="manufacturerProductCategory" type="xs:string"/>
+  <xs:element name="manufacturerProductSubCategory" type="xs:string"/>
+  <xs:element name="infoURL" type="xs:anyURI"/>
+  <xs:element name="servingImgId" type="xs:int"/>
+  <xs:element name="unitPackEAN" type="xs:long"/>
+  <xs:element name="singleUnitsPerTradingUnit" type="xs:byte"/>
+  <xs:element name="creationDate" type="xs:string"/>
+  <xs:element name="preparationInfo">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gvoDeclaration">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unitPack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="contentInfo"/>
+        <xs:element ref="dimension"/>
+        <xs:element ref="grossWeight"/>
+        <xs:element ref="grossWeightApprox"/>
+        <xs:element ref="grossWeightUnit"/>
+        <xs:element ref="grossWeightValue"/>
+        <xs:element ref="netWeight"/>
+        <xs:element ref="netWeightApprox"/>
+        <xs:element ref="netWeightUnit"/>
+        <xs:element ref="netWeightValue"/>
+        <xs:element ref="drainWeight"/>
+        <xs:element ref="drainWeightUnit"/>
+        <xs:element ref="drainWeightValue"/>
+        <xs:element ref="packagingWeight"/>
+        <xs:element ref="packagingWeightValue"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tradingUnit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="contentInfo"/>
+        <xs:element ref="dimension"/>
+        <xs:element ref="type"/>
+        <xs:element ref="grossWeight"/>
+        <xs:element ref="grossWeightApprox"/>
+        <xs:element ref="grossWeightUnit"/>
+        <xs:element ref="grossWeightValue"/>
+        <xs:element ref="netWeight"/>
+        <xs:element ref="netWeightApprox"/>
+        <xs:element ref="netWeightUnit"/>
+        <xs:element ref="netWeightValue"/>
+        <xs:element ref="drainWeight"/>
+        <xs:element ref="drainWeightUnit"/>
+        <xs:element ref="drainWeightValue"/>
+        <xs:element ref="packagingWeight"/>
+        <xs:element ref="packagingWeightValue"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="palette">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dimension"/>
+        <xs:element ref="handling"/>
+        <xs:element ref="tiersPerPalette"/>
+        <xs:element ref="type"/>
+        <xs:element ref="unitsPerPalette"/>
+        <xs:element ref="unitsPerTier"/>
+        <xs:element ref="totalWeightKG"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="commonInfo">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ingredients">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="storageInstruction">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="techData">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="id"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dataProducer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="producerName"/>
+        <xs:element ref="producerName2"/>
+        <xs:element ref="shortName"/>
+        <xs:element ref="shopURL"/>
+        <xs:element ref="producerId"/>
+        <xs:element ref="contactFirstname"/>
+        <xs:element ref="contactName"/>
+        <xs:element ref="contactSalutation"/>
+        <xs:element ref="contactFunction"/>
+        <xs:element ref="imageId"/>
+        <xs:element ref="address"/>
+      </xs:sequence>
+      <xs:attribute type="xs:short" name="id"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="manufacturer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="manufacturerName"/>
+        <xs:element ref="manufacturerName2"/>
+        <xs:element ref="manufacturerShortName"/>
+        <xs:element ref="shopURL"/>
+        <xs:element ref="manufacturerId"/>
+        <xs:element ref="contactFirstname"/>
+        <xs:element ref="contactName"/>
+        <xs:element ref="contactSalutation"/>
+        <xs:element ref="contactFunction"/>
+        <xs:element ref="imageId"/>
+        <xs:element ref="address"/>
+        <xs:element ref="certifications"/>
+        <xs:element ref="glns"/>
+      </xs:sequence>
+      <xs:attribute type="xs:short" name="id"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="allergens">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="allergen" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nutrients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nutrient" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="nutrientAnnotation"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="additiveLabels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="additiveLabel" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="additives">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="additive" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="additionalProductInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="productInfo" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="userSpecificInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="userSpecificInfo" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dietTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dietType" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="allergens2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="allergen" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="productCertifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="productCertification" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gtins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="gtin" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supplierData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="supplierAID"/>
+        <xs:element ref="supplierAID2"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="product">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="manufacturerAID"/>
+        <xs:element ref="name"/>
+        <xs:element ref="identification"/>
+        <xs:element ref="brand"/>
+        <xs:element ref="actualisationDate"/>
+        <xs:element ref="updateDate"/>
+        <xs:element ref="expirationDate"/>
+        <xs:element ref="euFoodInfoCompliant"/>
+        <xs:element ref="isReducedInfo"/>
+        <xs:element ref="imageId"/>
+        <xs:element ref="brandImageId"/>
+        <xs:element ref="productCategory"/>
+        <xs:element ref="productSubCategory"/>
+        <xs:element ref="gtin"/>
+        <xs:element ref="blsAID"/>
+        <xs:element ref="blsName"/>
+        <xs:element ref="nutrientReferenceUnit"/>
+        <xs:element ref="portionSize"/>
+        <xs:element ref="usedBlsNutrients"/>
+        <xs:element ref="productId"/>
+        <xs:element ref="storageType"/>
+        <xs:element ref="minShelfLife"/>
+        <xs:element ref="remainingLife"/>
+        <xs:element ref="isDirectDistribution"/>
+        <xs:element ref="isSpecializedWholesaleTrade"/>
+        <xs:element ref="isOnlineShopping"/>
+        <xs:element ref="isCashnCarry"/>
+        <xs:element ref="manufacturerProductCategory"/>
+        <xs:element ref="manufacturerProductSubCategory"/>
+        <xs:element ref="infoURL"/>
+        <xs:element ref="servingImgId"/>
+        <xs:element ref="unitPackEAN"/>
+        <xs:element ref="singleUnitsPerTradingUnit"/>
+        <xs:element ref="creationDate"/>
+        <xs:element ref="preparationInfo"/>
+        <xs:element ref="gvoDeclaration"/>
+        <xs:element ref="nutrientAnnotation"/>
+        <xs:element ref="unitPack"/>
+        <xs:element ref="tradingUnit"/>
+        <xs:element ref="palette"/>
+        <xs:element ref="commonInfo"/>
+        <xs:element ref="ingredients"/>
+        <xs:element ref="storageInstruction"/>
+        <xs:element ref="techData"/>
+        <xs:element ref="dataProducer"/>
+        <xs:element ref="manufacturer"/>
+        <xs:element ref="allergens"/>
+        <xs:element ref="nutrients"/>
+        <xs:element ref="additiveLabels"/>
+        <xs:element ref="additives"/>
+        <xs:element ref="additionalProductInfos"/>
+        <xs:element ref="userSpecificInfos"/>
+        <xs:element ref="dietTypes"/>
+        <xs:element ref="allergens2"/>
+        <xs:element ref="productCertifications"/>
+        <xs:element ref="gtins"/>
+        <xs:element ref="supplierData"/>
+      </xs:sequence>
+      <xs:attribute type="xs:int" name="id"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="product"/>
+      </xs:sequence>
+      <xs:attribute type="xs:byte" name="version"/>
+      <xs:attribute type="xs:string" name="created"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
