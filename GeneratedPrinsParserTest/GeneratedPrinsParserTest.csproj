@@ -10,6 +10,12 @@
   <ItemGroup>
     <Compile Remove="Model.cs" />
     <Compile Remove="Prins.cs" />
+    <Compile Remove="testdata.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="testdata.xsd" />
+    <None Remove="testdata_tns.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Maui.Markup" Version="3.3.1" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="XmlSchemaClassGenerator.Console" Version="2.1.963" />
   </ItemGroup>

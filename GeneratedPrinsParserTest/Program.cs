@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace GeneratedPrinsParserTest;
 
-using Prins = PrinsFreeformatter.Prins;
+using Prins = Prins.Prins;
 
 using static ProductExtensions;
 
@@ -82,24 +82,61 @@ internal class Program
             var test = (Prins)serializer.Deserialize(reader);
             var p = test.Product;
 
-            Console.WriteLine("Overview:");
+            Console.WriteLine("\nOverview:");
             foreach (var e in p.GetOverview()) {
-                Console.WriteLine(e);
+                Console.WriteLine($" {e}");
             }
-            /*
-            GetCommonInformation(this Product product)
 
-            public static IEnumerable<(string, object)> GetHints(this Product product)
+            Console.WriteLine("\nCommonInformation:");
+            foreach (var e in p.GetCommonInformation()) {
+                Console.WriteLine($" {e}");
+            }
 
-            public static IEnumerable<(string, object)> GetPackagingInformation(this Product product)
+            Console.WriteLine("\nHints:");
+            foreach (var e in p.GetCommonInformation()) {
+                Console.WriteLine($" {e}");
+            }
 
-            public static IEnumerable<(string, string)> GetIngredients(this Product product)
+            Console.WriteLine("\nPackagingInformation:");
+            Console.WriteLine($" {(nameof(p.UnitPackEan), p.UnitPackEan)}");
+            Console.WriteLine($" {(nameof(p.Gtin), p.Gtin)}");
 
-            public static IEnumerable<(string, object, string)> GetNutrients(this Product product)
-            public static IEnumerable<(string, string)> GetAdditives(this Product product)
+            Console.WriteLine(" TradingUnit:");
+            foreach (var e in p.GetTradingUnit()) {
+                Console.WriteLine($"  {e}");
+            }
+            Console.WriteLine(" UnitPack:");
+            foreach (var e in p.GetUnitPack()) {
+                Console.WriteLine($"  {e}");
+            }
+            Console.WriteLine(" Palette:");
+            foreach (var e in p.GetPaletteInfo()) {
+                Console.WriteLine($"  {e}");
+            }
 
-            public static IEnumerable<(string, string, int)> GetAlergens(this Product product)
-            */
+
+            Console.WriteLine("\nIngredients:");
+            foreach (var e in p.GetIngredients()) {
+                Console.WriteLine($" {e}");
+            }
+
+            Console.WriteLine("\nNutrientAnnotation:");
+            Console.WriteLine($" {p.NutrientAnnotation.Value}");
+
+            Console.WriteLine("\nNutrients:");
+            foreach (var e in p.GetNutrients()) {
+                Console.WriteLine($" {e}");
+            }
+
+            Console.WriteLine("\nAdditives:");
+            foreach (var e in p.GetAdditives()) {
+                Console.WriteLine($" {e}");
+            }
+
+            Console.WriteLine("\nAlergens:");
+            foreach (var e in p.GetAlergens()) {
+                Console.WriteLine($" {e}");
+            }
 
         }
 
