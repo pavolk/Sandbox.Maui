@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProductInformationApp"
+             x:Class="ProductInformationApp.MainPage">
+
+    <ContentPage.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="{OnPlatform 10, WinUI=15}"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="SectionHeaderStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Bold"/>
+        </Style>
+
+        <DataTemplate x:Key="KeyValueTemplate">
+            <Grid ColumnDefinitions="150,*" ColumnSpacing="5">
+                <Label Grid.Column="0" 
+                       Text="{Binding Key}" 
+                       BackgroundColor="LightGray"
+                       FontAttributes="Bold"
+                       LineBreakMode="HeadTruncation"/>
+                <Label Grid.Column="1" 
+                       Text="{Binding Value}"
+                       LineBreakMode="WordWrap"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TableRowTemplate">
+            <Grid RowDefinitions="auto,*,auto" RowSpacing="2" ColumnSpacing="0"> 
+                <BoxView Grid.Row="0" HeightRequest="1" Color="LightGray"/>
+                <Grid Grid.Row="1" ColumnDefinitions="250,auto,*" ColumnSpacing="2">
+                    <Label Grid.Column="0" Text="{Binding Key}" LineBreakMode="WordWrap"/>
+                    <BoxView Grid.Column="1" WidthRequest="1" Color="LightGray"/>
+                    <Label Grid.Column="2" Text="{Binding Value}" LineBreakMode="WordWrap"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="KeyValueUnitTemplate">
+            <Grid ColumnDefinitions="{OnPlatform '150,auto,auto', WinUI='250,auto,auto'}" ColumnSpacing="0">
+                <Label Grid.Column="0" 
+                       Text="{Binding Key}"/>
+                <Label Grid.Column="1" 
+                       Text="{Binding Value}"
+                       LineBreakMode="WordWrap"/>
+                <Label Grid.Column="2" 
+                       Text="{Binding Unit}"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TextCellTemplate">
+            <Grid RowDefinitions="20,*" RowSpacing="5">
+                <Label Grid.Row="0" 
+                       Text="{Binding Key}" 
+                       BackgroundColor="LightGray"
+                       FontAttributes="Bold"/>
+                <Label Grid.Row="1" 
+                       Text="{Binding Value}"
+                       LineBreakMode="WordWrap"/>
+            </Grid>
+        </DataTemplate>
+
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <VerticalStackLayout
+            VerticalOptions="StartAndExpand">
+
+            <Label Text="Overview:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Grid Padding="10,5,10,5">
+                <CollectionView ItemsSource="{Binding Overview}"
+                                ItemTemplate="{StaticResource KeyValueTemplate}"/>
+            </Grid>
+
+            <Label Text="CommonInformation:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Grid Padding="10,5,10,5">
+                <CollectionView ItemsSource="{Binding CommonInformation}"
+                                ItemTemplate="{StaticResource KeyValueTemplate}"/>
+            </Grid>
+
+            <Label Text="Hints:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Grid Padding="10,5,10,5">
+                <CollectionView ItemsSource="{Binding Hints}"
+                            ItemTemplate="{StaticResource TextCellTemplate}"/>
+            </Grid>
+
+            <Label Text="TradingUnit:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Grid Padding="10,5,10,5">
+                <CollectionView ItemsSource="{Binding TradingUnit}"
+                            ItemTemplate="{StaticResource KeyValueTemplate}"/>
+            </Grid>
+
+            <Label Text="UnitPack:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Grid Padding="10,5,10,5">
+                <CollectionView ItemsSource="{Binding UnitPack}"
+                            ItemTemplate="{StaticResource KeyValueTemplate}"/>
+            </Grid>
+
+            <Label Text="Palette:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Grid Padding="10,5,10,5">
+                <CollectionView ItemsSource="{Binding Palette}"
+                            ItemTemplate="{StaticResource KeyValueTemplate}"/>
+            </Grid>
+
+            <Label Text="Ingredients:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Label Text="{Binding Ingredients}" Padding="10,5,10,5"/>
+
+            <Label Text="NutrientAnnotation:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Label Text="{Binding NutrientAnnotation}" Padding="10,5,10,5"/>
+
+            <Label Text="Nutrients:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Grid Padding="10,5,10,5">
+                <CollectionView ItemsSource="{Binding Nutrients}"
+                            ItemTemplate="{StaticResource KeyValueUnitTemplate}"/>
+            </Grid>
+
+            <Label Text="Additives:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Grid Padding="10,5,10,5">
+                <CollectionView ItemsSource="{Binding Additives}" 
+                            ItemTemplate="{StaticResource TableRowTemplate}"/>
+            </Grid>
+
+            <Label Text="Alergens:" Style="{StaticResource SectionHeaderStyle}"/>
+            <Grid Padding="10,5,10,5">
+                <CollectionView ItemsSource="{Binding Alergens}"
+                            ItemTemplate="{StaticResource TableRowTemplate}"/>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
