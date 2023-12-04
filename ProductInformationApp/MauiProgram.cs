@@ -21,6 +21,9 @@ namespace ProductInformationApp
             builder.Services.AddPrinsService();
 
             builder.Services.AddTransient<MainPage>();
+            
+            builder.Services.AddTransient<ProductInformationViewModel>();
+            builder.Services.AddTransient<SimpleProductInformationPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

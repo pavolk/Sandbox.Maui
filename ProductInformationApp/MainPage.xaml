@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ProductInformationApp"
-             x:Class="ProductInformationApp.MainPage">
+             x:Class="ProductInformationApp.MainPage"
+             >
 
     <ContentPage.Resources>
 
@@ -16,6 +17,8 @@
             <Setter Property="FontFamily" Value="Bold"/>
         </Style>
 
+        <local:ProductInformationTemplateSelector x:Key="ProductInformationTemplateSelector"/>
+        
         <DataTemplate x:Key="KeyValueTemplate">
             <Grid ColumnDefinitions="150,*" ColumnSpacing="5">
                 <Label Grid.Column="0" 
@@ -61,6 +64,19 @@
                 <Label Grid.Row="1" 
                        Text="{Binding Value}"
                        LineBreakMode="WordWrap"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="HorizontalListCellTemplate">
+            <Grid RowDefinitions="20,*" RowSpacing="5">
+                <Label Grid.Row="0" 
+                       Text="{Binding Key}" 
+                       BackgroundColor="LightGray"
+                       FontAttributes="Bold"/>
+                <CollectionView Grid.Row="1" 
+                                ItemsSource="{Binding Value}"
+                                ItemTemplate="{StaticResource ...}"
+                                />
             </Grid>
         </DataTemplate>
 
