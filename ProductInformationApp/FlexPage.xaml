@@ -60,56 +60,77 @@
     <ContentPage.Content>
         <ScrollView>
             <FlexLayout Direction="Row" Wrap="Wrap" AlignContent="Start" AlignItems="Start">
-                <Frame MaximumWidthRequest="600" FlexLayout.Shrink="0.2">
+
+                <Frame MinimumWidthRequest="500" MaximumWidthRequest="600" FlexLayout.Shrink="0.2" FlexLayout.Order="-100">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
+                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
-                <Frame MaximumWidthRequest="300" FlexLayout.Shrink="0.1">
+
+                <Label FlexLayout.Basis="100%"/>
+
+                <Frame MinimumWidthRequest="200" MaximumWidthRequest="300" FlexLayout.Shrink="0.5">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
+                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
-                <Frame MaximumWidthRequest="300" FlexLayout.Shrink="0.1">
+
+                <Frame MinimumWidthRequest="200" MaximumWidthRequest="300" FlexLayout.Shrink="0.5">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
+                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
-                
-                <Frame MaximumWidthRequest="200" FlexLayout.Order="100">
+
+                <Frame MinimumWidthRequest="200" MaximumWidthRequest="300" FlexLayout.Shrink="0.5">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
+                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
-                <Frame MaximumWidthRequest="200" FlexLayout.Order="100">
-                   <VerticalStackLayout>
-                       <Label Style="{StaticResource Header}" Text="Title"/>
-                       <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
-                   </VerticalStackLayout>
-                </Frame>
-                <Frame MaximumWidthRequest="200" FlexLayout.Order="100">
-                   <VerticalStackLayout>
-                       <Label Style="{StaticResource Header}" Text="Title"/>
-                       <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
-                   </VerticalStackLayout>
-               </Frame>
-                
-                <Frame MaximumWidthRequest="300" FlexLayout.Shrink="0.1">
+
+                <Frame MinimumWidthRequest="200" MaximumWidthRequest="300" FlexLayout.Shrink="0.5">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
+                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
-                <Frame MaximumWidthRequest="300" FlexLayout.Shrink="0.1">
+
+                <Frame MinimumWidthRequest="150" MaximumWidthRequest="200" FlexLayout.Order="100">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
+                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
-                </Frame>            
+                </Frame>
+
+                <Frame MinimumWidthRequest="150" MaximumWidthRequest="200" FlexLayout.Order="100">
+                    <VerticalStackLayout>
+                        <Label Style="{StaticResource Header}" Text="Title"/>
+                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame MinimumWidthRequest="150" MaximumWidthRequest="200" FlexLayout.Order="100">
+                    <VerticalStackLayout>
+                        <Label Style="{StaticResource Header}" Text="Title"/>
+                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Label FlexLayout.Basis="100%"/>
+
+
+
             </FlexLayout>
         </ScrollView>
     </ContentPage.Content>

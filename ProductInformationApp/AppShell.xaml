@@ -13,9 +13,9 @@
             ContentTemplate="{DataTemplate local:FlexPage}"
             Route="FlexPage" />
         <ShellContent
-            Title="Flex"
-            ContentTemplate="{DataTemplate local:FlexPage}"
-            Route="FlexPage" />
+            Title="SimpleFlex"
+            ContentTemplate="{DataTemplate local:SimpleFlexPage}"
+            Route="SimpleFlexPage" />
 
     </TabBar>
 
