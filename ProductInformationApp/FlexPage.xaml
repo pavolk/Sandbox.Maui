@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:ProductInformationApp">
 
     <ContentPage.Resources>
+        
         <Style x:Key="Header" TargetType="Label">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontFamily" Value="Bold"/>
@@ -12,28 +13,39 @@
         
         <Style x:Key="Body" TargetType="Label">
             <Setter Property="FontSize" Value="12"/>
-        </Style>
-        
-        <Style x:Key="ProductInfoCard" TargetType="Frame">
-            <Setter Property="BackgroundColor" Value="Orange"/>
-            <Setter Property="BorderColor" Value="Gray"/>
-            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="LineBreakMode" Value="WordWrap"/>
         </Style>
 
+        <Style x:Key="WideInfoCard" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="IndianRed"/>
+            <Setter Property="FlexLayout.Order" Value="-100"/>
+            <Setter Property="FlexLayout.Basis" Value="100%"/>
+        </Style>
+        
+        <Style x:Key="RegularInfoCard" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="LightGreen"/>
+            <Setter Property="FlexLayout.Order" Value="0"/>
+            <Setter Property="FlexLayout.Basis" Value="50%"/>
+        </Style>
+        
+        <Style x:Key="NarrowInfoCard" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="LightBlue"/>
+            <Setter Property="FlexLayout.Order" Value="100"/>
+            <Setter Property="FlexLayout.Basis" Value="33.33%"/>
+        </Style>
+        
         <Style x:Key="VerticalTableLines" TargetType="BoxView">
-            <Setter Property="Color" Value="DarkRed"/>
+            <Setter Property="Color" Value="LightSlateGray"/>
             <Setter Property="WidthRequest" Value="2"/>
-            <Setter Property="VerticalOptions" Value="Fill"/>
         </Style>
         
         <Style x:Key="HorizontalTableLines" TargetType="BoxView">
-            <Setter Property="Color" Value="DarkRed"/>
+            <Setter Property="Color" Value="LightSlateGray"/>
             <Setter Property="HeightRequest" Value="2"/>
-            <Setter Property="HorizontalOptions" Value="Fill"/>
         </Style>
         
-        <DataTemplate x:Key="TableCellTemplate">
-            <Grid ColumnSpacing="5" RowSpacing="0">
+        <DataTemplate x:Key="KeyValueRowTemplate">
+            <Grid HorizontalOptions="StartAndExpand" RowSpacing="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
@@ -48,10 +60,25 @@
                 <BoxView Grid.Row="0" Grid.ColumnSpan="5" Style="{StaticResource HorizontalTableLines}"/>
 
                 <BoxView Grid.Row="1" Grid.Column="0" Style="{StaticResource VerticalTableLines}"/>
-                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Key}" Style="{StaticResource Body}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Key}" Style="{StaticResource Body}" HorizontalTextAlignment="Start"/>
                 <BoxView Grid.Row="1" Grid.Column="2" Style="{StaticResource VerticalTableLines}"/>
                 <Label Grid.Row="1" Grid.Column="3" Text="{Binding Value}" Style="{StaticResource Body}" HorizontalTextAlignment="End"/>
                 <BoxView Grid.Row="1" Grid.Column="4" Style="{StaticResource VerticalTableLines}"/>
+                
+            </Grid>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="SimpleKeyValueRowTemplate">
+            <Grid HorizontalOptions="StartAndExpand" ColumnSpacing="5" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Text="{Binding Key}" Style="{StaticResource Body}" FontFamily="Bold" HorizontalTextAlignment="Start"/>
+                <BoxView Grid.Column="1" Style="{StaticResource VerticalTableLines}"/>
+                <Label Grid.Column="2" Text="{Binding Value}" Style="{StaticResource Body}" HorizontalTextAlignment="End"/>
             </Grid>
         </DataTemplate>
         
@@ -61,75 +88,79 @@
         <ScrollView>
             <FlexLayout Direction="Row" Wrap="Wrap" AlignContent="Start" AlignItems="Start">
 
-                <Frame MinimumWidthRequest="500" MaximumWidthRequest="600" FlexLayout.Shrink="0.2" FlexLayout.Order="-100">
+                <Frame Style="{StaticResource WideInfoCard}">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                        <Label Style="{StaticResource Body}"
                                 Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
 
-                <Label FlexLayout.Basis="100%"/>
-
-                <Frame MinimumWidthRequest="200" MaximumWidthRequest="300" FlexLayout.Shrink="0.5">
+                <Frame Style="{StaticResource RegularInfoCard}">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                        <Label Style="{StaticResource Body}"
                                 Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame MinimumWidthRequest="200" MaximumWidthRequest="300" FlexLayout.Shrink="0.5">
+                <Frame Style="{StaticResource WideInfoCard}" FlexLayout.Order="1">
+                    <VerticalStackLayout>
+                        <Label Style="{StaticResource Header}" Text="Title 1"/>
+                        <Label Style="{StaticResource Body}"
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <Frame Style="{StaticResource RegularInfoCard}">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                        <Label Style="{StaticResource Body}"
                                 Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame MinimumWidthRequest="200" MaximumWidthRequest="300" FlexLayout.Shrink="0.5">
+                <Frame Style="{StaticResource RegularInfoCard}">
+                    <VerticalStackLayout>
+                        <Label Text="Title" Style="{StaticResource Header}"/>
+                        <CollectionView Grid.Row="0" ItemsSource="{Binding Items}" 
+                                                        ItemTemplate="{StaticResource KeyValueRowTemplate}"/>
+                        <BoxView Grid.Row="1" Style="{StaticResource HorizontalTableLines}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource RegularInfoCard}">
+                    <VerticalStackLayout>
+                        <Label Text="Title" Style="{StaticResource Header}"/>
+                        <CollectionView Grid.Row="0" ItemsSource="{Binding Items}" 
+                                                        ItemTemplate="{StaticResource KeyValueRowTemplate}"/>
+                        <BoxView Grid.Row="1" Style="{StaticResource HorizontalTableLines}"/>
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <Frame Style="{StaticResource NarrowInfoCard}">
+                    <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                        <Label Text="Title" Style="{StaticResource Header}"/>
+                        <CollectionView ItemsSource="{Binding Items}" 
+                                                        ItemTemplate="{StaticResource SimpleKeyValueRowTemplate}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource NarrowInfoCard}">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                        <Label Style="{StaticResource Body}"
                                 Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame MinimumWidthRequest="200" MaximumWidthRequest="300" FlexLayout.Shrink="0.5">
+                <Frame Style="{StaticResource NarrowInfoCard}">
                     <VerticalStackLayout>
                         <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
+                        <Label Style="{StaticResource Body}"
                                 Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
                     </VerticalStackLayout>
                 </Frame>
-
-                <Frame MinimumWidthRequest="150" MaximumWidthRequest="200" FlexLayout.Order="100">
-                    <VerticalStackLayout>
-                        <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
-                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
-                    </VerticalStackLayout>
-                </Frame>
-
-                <Frame MinimumWidthRequest="150" MaximumWidthRequest="200" FlexLayout.Order="100">
-                    <VerticalStackLayout>
-                        <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
-                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
-                    </VerticalStackLayout>
-                </Frame>
-
-                <Frame MinimumWidthRequest="150" MaximumWidthRequest="200" FlexLayout.Order="100">
-                    <VerticalStackLayout>
-                        <Label Style="{StaticResource Header}" Text="Title"/>
-                        <Label Style="{StaticResource Body}" LineBreakMode="WordWrap" 
-                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quod si ita sit, cur opera philosophiae sit danda nescio. Miserum hominem! Si dolor summum malum est, dici aliter non potest. Et quidem, inquit, vehementer errat; Atque his de rebus et splendida est eorum et illustris oratio. Murenam te accusante defenderem. Quae contraria sunt his, malane? Aliter enim nosmet ipsos nosse non possumus. Duo Reges: constructio interrete."/>
-                    </VerticalStackLayout>
-                </Frame>
-
-                <Label FlexLayout.Basis="100%"/>
-
-
 
             </FlexLayout>
         </ScrollView>

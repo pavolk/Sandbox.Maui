@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:ProductInformationApp"
     Shell.FlyoutBehavior="Flyout">
 
+    <!--
 
     <TabBar>
         <ShellContent
@@ -18,18 +19,20 @@
             Route="SimpleFlexPage" />
 
     </TabBar>
+    -->
 
-    <!--
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    
+    
     <ShellContent
         Title="Simple"
         ContentTemplate="{DataTemplate local:SimpleProductInformationPage}"
         Route="SimpleProductInformationPage" />
 
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-    -->
 
 </Shell>

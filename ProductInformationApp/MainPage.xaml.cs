@@ -1,8 +1,7 @@
 ﻿using CommunityToolkit.Maui.Markup;
+using Microsoft.Maui.Layouts;
 using ProductInformationApp.Services;
-using System.Collections;
 
-using static CommunityToolkit.Maui.Markup.GridRowsColumns;
 
 namespace ProductInformationApp;
 
@@ -11,112 +10,152 @@ public class ProductInformationTemplateSelector : DataTemplateSelector
     protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
     {
         if (item is Prins.Product product) {
-
             return new DataTemplate(() => new Label().Bind(nameof(product.Name)));
-
         }
 
-        if (item is Prins.ProductCertifications pcs) {
-            return new DataTemplate(() => new HorizontalStackLayout()
-                                                .ItemsSource(pcs.ProductCertification)
-                                                .ItemTemplate(this));
+        if (item is IEnumerable<Prins.UserSpecificInfo> uis) {
+            return new DataTemplate(() => new HorizontalStackLayout() { Spacing = 5 }
+                                                .ItemsSource(uis)
+                                                .ItemTemplateSelector(this)
+            );
         }
 
-        if (item is MainPageViewModel.ProductInfoChunk pic) {
-            return new DataTemplate(() =>
-                new Grid() {
-                    RowDefinitions = Rows.Define(Auto, Auto),
-                    RowSpacing = 5,
+        if (item is Prins.UserSpecificInfo ui) {
+            return new DataTemplate(() => new Frame() {
+                CornerRadius = 25,
+                Content = new VerticalStackLayout() {
+                    Spacing = 5,
                     Children = {
-                        new Label()
-                            .Row(0)
-                            .Text(pic.Header)
-                            .Bold().BackgroundColor(Colors.LightGray)
-                        ,
-                        new Grid() {
-                            Children = {
-                                new CollectionView()
-                                    .ItemsSource(pic.Data)
-                                    .ItemTemplate(this)
-                            }
-                        }.Row(1)
-                         .Paddings(left:5, right: 5)
+                        new Label().Text(ui.Header).Bold(),
+                        new Label() { LineBreakMode = LineBreakMode.WordWrap }.Text(ui.Text)
                     }
-                });
-        }
-
-        if (item is MainPageViewModel.TextCell tc) {
-            return new DataTemplate(() =>
-                new Grid() {
-                    RowDefinitions = Rows.Define(Auto, Star),
-                    Children = {
-                        new Label() { LineBreakMode = LineBreakMode.HeadTruncation }
-                            .Row(0)
-                            .Text(tc.Title).Bold()
-                        ,
-                        new Grid() {
-                            Children = {
-                                new CollectionView()
-                                    .ItemsSource(tc.Body)
-                                    .ItemTemplate(this)
-                            }
-                        }.Row(1)
-                         .Paddings(left:5, right: 5)
-                    }
-                });
-        }
-
-        if (item is MainPageViewModel.KeyValue kv) {
-            return new DataTemplate(() =>
-                new Grid() {
-                    ColumnDefinitions = Columns.Define(250, Auto),
-                    Children = {
-                        new Label() { LineBreakMode = LineBreakMode.HeadTruncation }
-                            .Column(0)
-                            .Text(kv.Key).Bold()
-                        ,
-                        new Label() { LineBreakMode = LineBreakMode.WordWrap }
-                            .Column(1)
-                            .Text(kv.Value.ToString())
-                    }
-                });
-        }
-
-        if (item is MainPageViewModel.KeyValueUnit kvu) {
-            return new DataTemplate(() =>
-                new Grid() {
-                    ColumnDefinitions = Columns.Define(250, Auto, Auto),
-                    Children = {
-                        new Label() { LineBreakMode = LineBreakMode.HeadTruncation }
-                            .Column(0)
-                            .Text(kvu.Key)
-                            .Bold()
-                        ,
-                        new Label()
-                            .Column(1)
-                            .Text(kvu.Value.ToString())
-                        ,
-                        new Label()
-                            .Column(2)
-                            .Text(kvu.Unit)
-                    }
-                });
-        }
-
-        if (item is Prins.ProductCertification pc) {
-            return new DataTemplate(() => {
-                return new Label().Text(pc.Text);
+                } 
             });
         }
 
-        if (item is string) {
-            return new DataTemplate(() => new Label().Text(item.ToString()));
+        if (item is IEnumerable<Prins.ProductCertification> pcs) {
+            return new DataTemplate(() => new HorizontalStackLayout() { Spacing = 10 }
+                                                .ItemsSource(pcs)
+                                                .ItemTemplateSelector(this)
+                                                .Basis(new FlexBasis(1, true))
+            );
         }
 
-        if (item is IEnumerable items) {
-            return new DataTemplate(() => new CollectionView()
-                                                .ItemsSource(items)
-                                                .ItemTemplate(this));
+        if (item is Prins.ProductCertification pc) {
+            return new DataTemplate(() => new Frame() {
+                CornerRadius = 25,
+                HeightRequest = 50,
+                WidthRequest = 150,
+                Content = new Label().Text(pc.Text).FontSize(10).Center().TextCenter()
+            });
+        }
+
+        if (item is Prins.StorageInstruction si) {
+            return new DataTemplate(() => new Frame() {
+                        CornerRadius = 25,
+                        Content = new VerticalStackLayout() { 
+                            Spacing = 5,
+                            Children= {
+                                new Label().Text("Storage Information/Aufbewahrungshinweise:").Bold(),
+                                new Label() { LineBreakMode = LineBreakMode.WordWrap }.Text(si.Value),
+                            }
+                        
+                        }
+                    });
+        }
+
+        if (item is Prins.PreparationInfo pi) {
+            return new DataTemplate(() => new Frame() {
+                CornerRadius = 25,
+                Content = new VerticalStackLayout() {
+                    Spacing = 5,
+                    Children = {
+                        new Label().Text("Preparation Information/Zubereitungsempfehlung:").Bold(),
+                        new Label() { LineBreakMode = LineBreakMode.WordWrap }.Text(pi.Value)
+                    }
+                }
+            });
+        }
+
+        if (item is IEnumerable<Prins.DietType> dts) {
+            return new DataTemplate(() => new HorizontalStackLayout() { Spacing = 10 }
+                                                .ItemsSource(dts)
+                                                .ItemTemplateSelector(this)
+                                                .Basis(new FlexBasis(1, true))
+            );
+        }
+
+        if (item is Prins.DietType dt) {
+            return new DataTemplate(() => new Frame() {
+                CornerRadius = 25,
+                HeightRequest = 50,
+                WidthRequest = 150,
+                Content = new Label().Text(dt.Text[0]).FontSize(10).Center().TextCenter()
+            });
+        }
+
+        if (item is Prins.TradingUnit tu) {
+            var fields = new List<PrinsModelExtensions.KeyValue>() {
+                new (nameof(tu.GrossWeight), tu.GrossWeight),
+                new (nameof(tu.NetWeight), tu.NetWeight),
+            };
+            return new DataTemplate(() => new Frame() {
+                Content = new VerticalStackLayout() {
+                    Spacing = 5,
+                    Children = {
+                        new Label().Text("Trading unit/Verkaufseinheit").Bold(),
+                        new CollectionView()
+                            .ItemsSource(fields)
+                            .ItemTemplate(this)
+                    }
+                }
+            });
+        }
+
+        if (item is Prins.UnitPack up) {
+            var fields = new List<PrinsModelExtensions.KeyValue>() {
+                new (nameof(up.Dimension), up.Dimension),
+                new (nameof(up.DrainWeight), up.DrainWeight)
+            };
+            return new DataTemplate(() => new Frame() {
+                Content = new VerticalStackLayout() {
+                    Spacing = 5,
+                    Children = {
+                        new Label().Text("Unit pack/Einzelverpackung/-einheit").Bold(),
+                        new CollectionView()
+                            .ItemsSource(fields)
+                            .ItemTemplate(this)
+                    }
+                }
+            });
+        }
+
+        if (item is Prins.Palette plt) {
+            var fields = new List<PrinsModelExtensions.KeyValue>() {
+                new (nameof(plt.Dimension), plt.Dimension),
+                new (nameof(plt.TotalWeightKg), plt.TotalWeightKg)
+            };
+            return new DataTemplate(() => new Frame() { 
+                Content = new VerticalStackLayout() {
+                    Spacing = 5,
+                    Children = {
+                        new Label().Text("Palette").Bold(),
+                        new CollectionView()
+                            .ItemsSource(fields)
+                            .ItemTemplate(this)
+                    }
+                }
+            });
+        }
+
+        if (item is PrinsModelExtensions.KeyValue kv) {
+            return new DataTemplate(() => new HorizontalStackLayout() {
+                Spacing = 5,
+                Children = {
+                    new Label().Text(kv.Key).Bold(), 
+                    new Label().Text(kv.Value.ToString())
+                }
+            });
         }
 
         return new DataTemplate(() => new Label().Text($"Unknown data-type {item.GetType()}"));
@@ -132,14 +171,11 @@ public partial class MainPage : ContentPage
         _service = service;
        
         Content = new ActivityIndicator() { IsRunning = true };
-
-        Task.Run(() => LoadData())
-            .ContinueWith(_ => Dispatcher.Dispatch(() => Build()));
     }
 
     async Task LoadData()
     {
-        await Task.Delay(2000);
+        //await Task.Delay(2000);
         try {
             BindingContext = new MainPageViewModel(await _service.GetByIdAsync(1));
         } catch (Exception ex) {
@@ -149,17 +185,57 @@ public partial class MainPage : ContentPage
 
     void Build()
     {
-        //InitializeComponent();
+        var sectionHeaderStyle = new Style<Label>(
+            (Label.TextColorProperty, Colors.Black),
+            (Label.BackgroundColorProperty, Colors.LightGray),
+            (Label.FontAttributesProperty, FontAttributes.Bold));
 
         var vm = BindingContext as MainPageViewModel;
 
         var selector = new ProductInformationTemplateSelector();
 
         Content = new ScrollView() {
-            Content = new CollectionView()
-                        .ItemsSource(vm.Chunks ?? Enumerable.Empty<string>())
+            Content = new VerticalStackLayout() { Spacing = 10, //new FlexLayout() { Direction = FlexDirection.Row, Wrap = FlexWrap.Wrap, 
+                Children = {
+                    new Button().Text("Rebuild").Invoke(b => b.Clicked += (b,e) => Build()).Basis(new FlexBasis(1, true))
+
+                    ,
+                    new CollectionView()
+                        .ItemsSource(vm.Product.GetOverview())
                         .ItemTemplate(selector)
+                    ,
+                    new Label().Text("Common Information/Allgemeine Informationen:").Style(sectionHeaderStyle).Basis(new FlexBasis(1, true))
+                    ,
+                    new CollectionView()
+                        .ItemsSource (vm.Product.GetCommonInformation())
+                        .ItemTemplate(selector)
+                    ,
+                    new Label().Text("Hints/Allgemeine Hinweise:").Style(sectionHeaderStyle).Basis(new FlexBasis(1, true))
+                    ,
+                    new FlexLayout() { Direction = FlexDirection.Row, Wrap = FlexWrap.Wrap }
+                        .ItemsSource (vm.Product.GetHints())
+                        .ItemTemplateSelector(selector)
+                    ,
+                    new Label().Text("Packaging/Packungseinheiten:").Style(sectionHeaderStyle).Basis(new FlexBasis(1, true))
+                    ,
+                    new FlexLayout() { Direction = FlexDirection.Row, 
+                                       Wrap = FlexWrap.Wrap, 
+                                       JustifyContent = FlexJustify.Start, 
+                                       AlignContent = FlexAlignContent.Start, 
+                                       AlignItems = FlexAlignItems.Start }
+                        .ItemsSource (vm.Product.GetPackaging())
+                        .ItemTemplateSelector(selector)
+                    ,
+                }
+            }
         };
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        Task.Run(() => LoadData())
+          .ContinueWith(_ => Dispatcher.Dispatch(() => Build()));
     }
 
 }
