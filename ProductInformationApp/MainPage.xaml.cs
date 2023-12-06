@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Maui.Markup;
 using Microsoft.Maui.Layouts;
 using ProductInformationApp.Services;
-
+using System.Collections;
 
 namespace ProductInformationApp;
 
@@ -9,19 +9,16 @@ public class ProductInformationTemplateSelector : DataTemplateSelector
 {
     protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
     {
+        var UserSpecificInfo_MinMaxWidthRequest = (300, 500);
+
         if (item is Prins.Product product) {
             return new DataTemplate(() => new Label().Bind(nameof(product.Name)));
         }
 
-        if (item is IEnumerable<Prins.UserSpecificInfo> uis) {
-            return new DataTemplate(() => new HorizontalStackLayout() { Spacing = 5 }
-                                                .ItemsSource(uis)
-                                                .ItemTemplateSelector(this)
-            );
-        }
-
         if (item is Prins.UserSpecificInfo ui) {
             return new DataTemplate(() => new Frame() {
+                MinimumWidthRequest = UserSpecificInfo_MinMaxWidthRequest.Item1,
+                MaximumWidthRequest = UserSpecificInfo_MinMaxWidthRequest.Item2,
                 CornerRadius = 25,
                 Content = new VerticalStackLayout() {
                     Spacing = 5,
@@ -33,20 +30,15 @@ public class ProductInformationTemplateSelector : DataTemplateSelector
             });
         }
 
-        if (item is IEnumerable<Prins.ProductCertification> pcs) {
-            return new DataTemplate(() => new HorizontalStackLayout() { Spacing = 10 }
-                                                .ItemsSource(pcs)
-                                                .ItemTemplateSelector(this)
-                                                .Basis(new FlexBasis(1, true))
-            );
-        }
-
         if (item is Prins.ProductCertification pc) {
             return new DataTemplate(() => new Frame() {
                 CornerRadius = 25,
                 HeightRequest = 50,
                 WidthRequest = 150,
-                Content = new Label().Text(pc.Text).FontSize(10).Center().TextCenter()
+                Content = new Label().Text(pc.Text)
+                                     .FontSize(10)
+                                     .Center()
+                                     .TextCenter()
             });
         }
 
@@ -75,14 +67,6 @@ public class ProductInformationTemplateSelector : DataTemplateSelector
                     }
                 }
             });
-        }
-
-        if (item is IEnumerable<Prins.DietType> dts) {
-            return new DataTemplate(() => new HorizontalStackLayout() { Spacing = 10 }
-                                                .ItemsSource(dts)
-                                                .ItemTemplateSelector(this)
-                                                .Basis(new FlexBasis(1, true))
-            );
         }
 
         if (item is Prins.DietType dt) {
@@ -188,7 +172,17 @@ public partial class MainPage : ContentPage
         var sectionHeaderStyle = new Style<Label>(
             (Label.TextColorProperty, Colors.Black),
             (Label.BackgroundColorProperty, Colors.LightGray),
-            (Label.FontAttributesProperty, FontAttributes.Bold));
+            (Label.FontAttributesProperty, FontAttributes.Bold),
+            (Label.FontSizeProperty, 16)
+        );
+
+        var flexLayoutStyle = new Style<FlexLayout>(
+            (FlexLayout.DirectionProperty, FlexDirection.Row),
+            (FlexLayout.WrapProperty, FlexWrap.Wrap),
+            (FlexLayout.JustifyContentProperty, FlexJustify.Start),
+            (FlexLayout.AlignContentProperty, FlexAlignContent.Start),
+            (FlexLayout.AlignItemsProperty, FlexAlignItems.Start)
+        );
 
         var vm = BindingContext as MainPageViewModel;
 
@@ -197,34 +191,44 @@ public partial class MainPage : ContentPage
         Content = new ScrollView() {
             Content = new VerticalStackLayout() { Spacing = 10, //new FlexLayout() { Direction = FlexDirection.Row, Wrap = FlexWrap.Wrap, 
                 Children = {
-                    new Button().Text("Rebuild").Invoke(b => b.Clicked += (b,e) => Build()).Basis(new FlexBasis(1, true))
-
+                    new Button().Text("Rebuild")
+                                .Invoke(b => b.Clicked += (b,e) => Build())
+                                .Basis(new FlexBasis(1, true))
                     ,
                     new CollectionView()
                         .ItemsSource(vm.Product.GetOverview())
                         .ItemTemplate(selector)
                     ,
-                    new Label().Text("Common Information/Allgemeine Informationen:").Style(sectionHeaderStyle).Basis(new FlexBasis(1, true))
+                    new Label().Text("Common Information/Allgemeine Informationen:")
+                               .Style(sectionHeaderStyle)
+                               .Basis(new FlexBasis(1, true))
                     ,
                     new CollectionView()
                         .ItemsSource (vm.Product.GetCommonInformation())
                         .ItemTemplate(selector)
                     ,
-                    new Label().Text("Hints/Allgemeine Hinweise:").Style(sectionHeaderStyle).Basis(new FlexBasis(1, true))
+                    new Label().Text("Hints/Allgemeine Hinweise:")
+                               .Style(sectionHeaderStyle)
+                               .Basis(new FlexBasis(1, true))
                     ,
-                    new FlexLayout() { Direction = FlexDirection.Row, Wrap = FlexWrap.Wrap }
-                        .ItemsSource (vm.Product.GetHints())
+                    new FlexLayout()
+                        .ItemsSource (vm.Product.UserSpecificInfos)
                         .ItemTemplateSelector(selector)
+                        .Style(flexLayoutStyle)
                     ,
-                    new Label().Text("Packaging/Packungseinheiten:").Style(sectionHeaderStyle).Basis(new FlexBasis(1, true))
+                    new FlexLayout()
+                        .ItemsSource (vm.Product.ProductCertifications)
+                        .ItemTemplateSelector(selector)
+                        .Style(flexLayoutStyle)
                     ,
-                    new FlexLayout() { Direction = FlexDirection.Row, 
-                                       Wrap = FlexWrap.Wrap, 
-                                       JustifyContent = FlexJustify.Start, 
-                                       AlignContent = FlexAlignContent.Start, 
-                                       AlignItems = FlexAlignItems.Start }
+                    new Label().Text("Packaging/Packungseinheiten:")
+                               .Style(sectionHeaderStyle)
+                               .Basis(new FlexBasis(1, true))
+                    ,
+                    new FlexLayout()
                         .ItemsSource (vm.Product.GetPackaging())
                         .ItemTemplateSelector(selector)
+                        .Style(flexLayoutStyle)
                     ,
                 }
             }
@@ -235,7 +239,7 @@ public partial class MainPage : ContentPage
     {
         base.OnAppearing();
         Task.Run(() => LoadData())
-          .ContinueWith(_ => Dispatcher.Dispatch(() => Build()));
+            .ContinueWith(_ => Dispatcher.Dispatch(() => Build()));
     }
 
 }

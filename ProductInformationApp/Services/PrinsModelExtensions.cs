@@ -48,7 +48,7 @@ public static class PrinsModelExtensions
         yield return new KeyValue(nameof(product.MinShelfLife), product.MinShelfLife);
     }
 
-    public static IEnumerable<object> GetHints(this Product product)
+    public static IEnumerable<object> GetHintGroupped(this Product product)
     {
         if (product.UserSpecificInfos != null) {
             yield return product.UserSpecificInfos;
@@ -71,6 +71,42 @@ public static class PrinsModelExtensions
         // # Kostformen
         if (product.DietTypes != null) {
             yield return product.DietTypes.Select(dt => dt.DietTypeProperty);
+        }
+    }
+
+
+
+    public static IEnumerable<object> GetHints(this Product product)
+    {
+        if (product.UserSpecificInfos != null) {
+            foreach(var e in product.UserSpecificInfos) {
+                yield return e;
+            }
+        }
+
+        if (product.ProductCertifications != null) {
+            foreach (var e in product.ProductCertifications) {
+                yield return e;
+            }
+
+        }
+
+        // # Lagerhinweise
+        if (product.StorageInstruction != null) {
+            yield return product.StorageInstruction;
+        }
+
+        // # Zubereitungsempfehlung
+        if (product.PreparationInfo != null) {
+            yield return product.PreparationInfo;
+        }
+
+        // # Kostformen
+        if (product.DietTypes != null) {
+            foreach (var e in product.DietTypes.Select(dt => dt.DietTypeProperty)) {
+                yield return e;
+            }
+
         }
     }
 
