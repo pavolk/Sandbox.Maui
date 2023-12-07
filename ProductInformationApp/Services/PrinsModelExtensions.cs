@@ -9,7 +9,6 @@ public static class PrinsModelExtensions
 {
     public record KeyValue(string Key, object Value);
 
-
     public static IEnumerable<KeyValue> GetOverview(this Product product)
     {
         yield return new KeyValue(nameof(product.Identification), product.Identification);
@@ -20,7 +19,7 @@ public static class PrinsModelExtensions
             yield return new KeyValue(nameof(product.Manufacturer), product.Manufacturer.ManufacturerShortName);
         }
         if (product.Brand != null) {
-            yield return new KeyValue(nameof(product.Brand), product.Brand);
+            yield return new KeyValue(nameof(product.Brand), product.Brand.Value);
         }
         yield return new KeyValue(nameof(product.ManufacturerAid), product.ManufacturerAid);
     }
@@ -28,53 +27,44 @@ public static class PrinsModelExtensions
     public static IEnumerable<KeyValue> GetCommonInformation(this Product product)
     {
         if (product.CommonInfo != null) {
-            yield return new KeyValue(nameof(product.CommonInfo), product.CommonInfo);
+            yield return new KeyValue(nameof(product.CommonInfo), product.CommonInfo.Value);
         }
 
         if (product.ProductCategory != null) {
-            yield return new KeyValue(nameof(product.ProductCategory), product.ProductCategory);
+            yield return new KeyValue(nameof(product.ProductCategory), product.ProductCategory.Value);
         }
         if (product.ProductSubCategory != null) {
-            yield return new KeyValue(nameof(product.ProductSubCategory), product.ProductSubCategory);
+            yield return new KeyValue(nameof(product.ProductSubCategory), product.ProductSubCategory.Value);
         }
         yield return new KeyValue(nameof(product.ManufacturerProductCategory), product.ManufacturerProductCategory);
         yield return new KeyValue(nameof(product.ManufacturerProductSubCategory), product.ManufacturerProductSubCategory);
 
-        yield return new KeyValue(nameof(product.IsCashnCarry), product.IsCashnCarry);
-        yield return new KeyValue(nameof(product.IsSpecializedWholesaleTrade), product.IsSpecializedWholesaleTrade);
-        yield return new KeyValue(nameof(product.IsDirectDistribution), product.IsDirectDistribution);
-        yield return new KeyValue(nameof(product.IsOnlineShopping), product.IsOnlineShopping);
+        var distributionSources = new List<string>();
+        if (product.IsCashnCarry != 0) {
+            distributionSources.Add("CashnCarry");
+        }
+        if (product.IsSpecializedWholesaleTrade != 0) {
+            distributionSources.Add("SpecializedWholesaleTrade");
+        }
+        if (product.IsDirectDistribution != 0) {
+            distributionSources.Add("DirectDistribution");
+        }
+        if (product.IsOnlineShopping != 0) {
+            distributionSources.Add("OnlineShopping");
+        }
+
+        //yield return new KeyValue(nameof(product.IsCashnCarry), product.IsCashnCarry);
+        //yield return new KeyValue(nameof(product.IsSpecializedWholesaleTrade), product.IsSpecializedWholesaleTrade);
+        //yield return new KeyValue(nameof(product.IsDirectDistribution), product.IsDirectDistribution);
+        //yield return new KeyValue(nameof(product.IsOnlineShopping), product.IsOnlineShopping);
+
+        if (distributionSources.Count > 0) {
+            yield return new KeyValue("DistributionSources", string.Join(", ", distributionSources));
+        }
+        
 
         yield return new KeyValue(nameof(product.MinShelfLife), product.MinShelfLife);
     }
-
-    public static IEnumerable<object> GetHintGroupped(this Product product)
-    {
-        if (product.UserSpecificInfos != null) {
-            yield return product.UserSpecificInfos;
-        }
-
-        if (product.ProductCertifications != null) {
-            yield return product.ProductCertifications;
-        }
-
-        // # Lagerhinweise
-        if (product.StorageInstruction != null) {
-            yield return product.StorageInstruction;
-        }
-
-        // # Zubereitungsempfehlung
-        if (product.PreparationInfo != null) {
-            yield return product.PreparationInfo;
-        }
-
-        // # Kostformen
-        if (product.DietTypes != null) {
-            yield return product.DietTypes.Select(dt => dt.DietTypeProperty);
-        }
-    }
-
-
 
     public static IEnumerable<object> GetHints(this Product product)
     {
@@ -84,13 +74,6 @@ public static class PrinsModelExtensions
             }
         }
 
-        if (product.ProductCertifications != null) {
-            foreach (var e in product.ProductCertifications) {
-                yield return e;
-            }
-
-        }
-
         // # Lagerhinweise
         if (product.StorageInstruction != null) {
             yield return product.StorageInstruction;
@@ -103,10 +86,7 @@ public static class PrinsModelExtensions
 
         // # Kostformen
         if (product.DietTypes != null) {
-            foreach (var e in product.DietTypes.Select(dt => dt.DietTypeProperty)) {
-                yield return e;
-            }
-
+            yield return product.DietTypes; //.Select(dt => dt.DietTypeProperty);
         }
     }
 

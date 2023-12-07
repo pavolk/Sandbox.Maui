@@ -102,3 +102,67 @@
 
     </ContentPage.Content>
 </ContentPage>
+
+
+
+
+
+
+
+
+
+
+
+    class TextCell : ContentView 
+    {
+        static Style<Label> HeaderLabelStyle { get; } = new Style<Label>(
+           (Label.FontSizeProperty, 12),
+           (Label.FontAttributesProperty, FontAttributes.Bold)
+        );
+
+        static Style<Label> BodyLabelStyle = new Style<Label>(
+           (Label.FontSizeProperty, 10),
+           (Label.FontAttributesProperty, FontAttributes.None),
+           (Label.LineBreakModeProperty, LineBreakMode.WordWrap),
+           (Label.PaddingProperty, new Thickness(left: 5, top: 0, right: 5, bottom: 0))
+        ).BasedOn(HeaderLabelStyle);
+
+        string _title = string.Empty;
+        public string Title 
+        { 
+            get => _title; 
+            set { 
+                if (value == _title) { return; } 
+                _title = value;
+                OnPropertyChanged();
+            }
+        }
+
+        string _text = string.Empty;
+
+        public string Text 
+        { 
+            get => _text; 
+            set { 
+                if (_text == value) { return; }
+                _text = value;
+                OnPropertyChanged();
+            } 
+        }
+
+        public TextCell(int minw = 250, int maxw = 300)
+        {
+            BindingContext = this;
+
+            Content = new VerticalStackLayout() {
+                MinimumWidthRequest = minw,
+                MaximumWidthRequest = maxw,
+                Spacing = 5,
+                Children = {
+                    new Label().Bind(nameof(Title)).Style(HeaderLabelStyle),
+                    new Label().Bind(nameof(Text)).Style(BodyLabelStyle)
+                }
+            };
+
+        }
+    }
