@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ProductInformationApp"
-    Shell.FlyoutBehavior="Flyout">
+    Shell.FlyoutBehavior="{OnPlatform Flyout, WinUI=Locked}">
 
     <!--
 
@@ -27,12 +27,20 @@
         Route="MainPage" />
 
     
-    
     <ShellContent
         Title="Simple"
         ContentTemplate="{DataTemplate local:SimpleProductInformationPage}"
         Route="SimpleProductInformationPage" />
 
-
+        
+    <ShellContent
+        Title="Flex"
+        ContentTemplate="{DataTemplate local:FlexPage}"
+        Route="FlexPage" />
+    
+    <ShellContent
+        Title="CarouselView"
+        ContentTemplate="{DataTemplate local:CarouselViewPage}"
+        Route="CarouselViewPage" />
 
 </Shell>

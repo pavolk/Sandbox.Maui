@@ -7,17 +7,16 @@ namespace ProductInformationApp.Services;
 
 public static class PrinsModelExtensions
 {
-    public record KeyValue(string Key, object Value);
+    public record KeyValue(string Key, object Value, int RowIndex = -1);
 
     public static IEnumerable<KeyValue> GetOverview(this Product product)
     {
-        yield return new KeyValue(nameof(product.Identification), product.Identification);
         yield return new KeyValue(nameof(product.Name), product.Name);
-        yield return new KeyValue(nameof(product.BrandImageId), product.BrandImageId);
-
+        yield return new KeyValue(nameof(product.Identification), product.Identification);
         if (product.Manufacturer != null) {
             yield return new KeyValue(nameof(product.Manufacturer), product.Manufacturer.ManufacturerShortName);
         }
+        yield return new KeyValue(nameof(product.BrandImageId), product.BrandImageId);
         if (product.Brand != null) {
             yield return new KeyValue(nameof(product.Brand), product.Brand.Value);
         }
