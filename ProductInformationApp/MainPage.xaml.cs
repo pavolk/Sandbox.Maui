@@ -5,6 +5,7 @@ using System.Security.AccessControl;
 using static CommunityToolkit.Maui.Markup.GridRowsColumns;
 
 using MauiLayout = Microsoft.Maui.Controls.Compatibility.Layout;
+using KeyValue = ProductInformationApp.Services.PrinsModelExtensions.KeyValue;
 
 namespace ProductInformationApp;
 
@@ -130,12 +131,7 @@ public partial class MainPage : ContentPage
                         }
                     }
                     ,
-                    /*
-                    new CollectionView()
-                        .ItemsSource(vm.Product.GetOverview())
-                        .ItemTemplate(selector)
-                    ,
-                    */
+                    // Header
                     new VerticalStackLayout() {
                         Children = {
                             new Label().Text(vm.Product.Name)
@@ -155,7 +151,11 @@ public partial class MainPage : ContentPage
                         .Style(FlexLayoutStyle)
                     ,
                     new CollectionView()
-                        .ItemsSource (vm.Product.GetCommonInformation())
+                        .ItemsSource (vm.Product.GetCommonInformation()
+                            .Select((kv, i) => {
+                                return new KeyValue(kv.Key, kv.Value, i, Columns.Define(150, Star));
+                            })
+                         )
                         .ItemTemplate(selector)
                     ,
                     new SectionHeader("Hints/Allgemeine Hinweise")

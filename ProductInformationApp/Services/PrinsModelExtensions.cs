@@ -1,13 +1,12 @@
 ﻿
 using Prins;
-using System.Collections.ObjectModel;
 using Product = Prins.Product;
 
 namespace ProductInformationApp.Services;
 
 public static class PrinsModelExtensions
 {
-    public record KeyValue(string Key, object Value, int RowIndex = -1);
+    public record KeyValue(string Key, object Value, int RowIndex = -1, ColumnDefinitionCollection columns = null);
 
     public static IEnumerable<KeyValue> GetOverview(this Product product)
     {
@@ -51,17 +50,9 @@ public static class PrinsModelExtensions
         if (product.IsOnlineShopping != 0) {
             distributionSources.Add("OnlineShopping");
         }
-
-        //yield return new KeyValue(nameof(product.IsCashnCarry), product.IsCashnCarry);
-        //yield return new KeyValue(nameof(product.IsSpecializedWholesaleTrade), product.IsSpecializedWholesaleTrade);
-        //yield return new KeyValue(nameof(product.IsDirectDistribution), product.IsDirectDistribution);
-        //yield return new KeyValue(nameof(product.IsOnlineShopping), product.IsOnlineShopping);
-
         if (distributionSources.Count > 0) {
             yield return new KeyValue("DistributionSources", string.Join(", ", distributionSources));
         }
-        
-
         yield return new KeyValue(nameof(product.MinShelfLife), product.MinShelfLife);
     }
 

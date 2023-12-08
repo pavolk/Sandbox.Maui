@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui.Markup;
 using ProductInformationApp.Services;
-using System.Globalization;
 using static CommunityToolkit.Maui.Markup.GridRowsColumns;
 
 namespace ProductInformationApp;
@@ -9,44 +8,6 @@ using KeyValue = PrinsModelExtensions.KeyValue;
 
 public class ProductInformationTemplateSelector : DataTemplateSelector
 {
-    class IsEvenValueConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value is int i) { 
-                return i % 2 == 0;
-            }
-            return false;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    class TableRowGrid : Grid
-    {
-        Style<Label> OddRowStyle = new Style<Label>().BasedOn(MainPage.BodyLabelStyle);
-
-        Style<Label> EvenRowStyle = new Style<Label>().BasedOn(MainPage.BodyLabelStyle);
-
-        public TableRowGrid()
-        {
-            OddRowStyle.AddAppThemeBindings(
-                (Label.BackgroundColorProperty, Colors.White, Colors.Black),
-                (Label.TextColorProperty, Colors.Black, Colors.White)
-            );
-
-            EvenRowStyle.AddAppThemeBindings(
-                (Label.BackgroundColorProperty, Colors.LightGrey, Colors.DarkGrey),
-                (Label.TextColorProperty, Colors.Black, Colors.White)
-            );
-        }
-    }
-
-    static IValueConverter IsEvenConverter { get; } = new IsEvenValueConverter();
-
     protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
     {
         if (item is Prins.Product product) {
@@ -100,8 +61,10 @@ public class ProductInformationTemplateSelector : DataTemplateSelector
             var types = string.Join(", ", dt.Select(dt => dt.DietTypeProperty.Text[0]));
             return new DataTemplate(() => new VerticalStackLayout() {
                 Children = {
-                        new Label().Text("Diet types/Kostformen").Style(MainPage.HeaderLabelStyle),
-                        new Label().Text(types).Style(MainPage.BodyLabelStyle)
+                        new Label().Text("Diet types/Kostformen")
+                            .Style(MainPage.HeaderLabelStyle),
+                        new Label().Text(types)
+                            .Style(MainPage.BodyLabelStyle)
                     }
                 }.Style(MainPage.TextCellStyle)
             );
@@ -133,7 +96,7 @@ public class ProductInformationTemplateSelector : DataTemplateSelector
                 new (nameof(up.NetWeight), up.NetWeight),
                 new (nameof(up.DrainWeight), up.DrainWeight),
                 new (nameof(up.Dimension), up.Dimension),
-            };
+            }.Select((kv, i) => new KeyValue(kv.Key, kv.Value, i));
             return new DataTemplate(() => new VerticalStackLayout() {
                 Children = {
                         new Label().Text("Unit pack/Einzelverpackung/-einheit").Style(MainPage.HeaderLabelStyle),
@@ -153,7 +116,7 @@ public class ProductInformationTemplateSelector : DataTemplateSelector
                 new (nameof(plt.UnitsPerTier), plt.UnitsPerTier),
                 new (nameof(plt.Dimension), plt.Dimension),
                 new (nameof(plt.TotalWeightKg), plt.TotalWeightKg)
-            };
+            }.Select((kv, i) => new KeyValue(kv.Key, kv.Value, i));
             return new DataTemplate(() => new VerticalStackLayout() {
                 Children = {
                         new Label().Text("Palette").Style(MainPage.HeaderLabelStyle),
@@ -167,62 +130,37 @@ public class ProductInformationTemplateSelector : DataTemplateSelector
 
         if (item is KeyValue kv) {
 
-            var OddRowStyle = new Style<Label>()
+            var EvenRowStyle = new Style<Label>()
                     .BasedOn(MainPage.BodyLabelStyle)
                     .AddAppThemeBindings(
                         (Label.BackgroundColorProperty, Colors.White, Colors.Black),
                         (Label.TextColorProperty, Colors.Black, Colors.White)
                     );
 
-
-            var EvenRowStyle = new Style<Label>()
+            var OddRowStyle = new Style<Label>()
                     .BasedOn(MainPage.BodyLabelStyle)
                     .AddAppThemeBindings(
-                        (Label.BackgroundColorProperty, Colors.LightGrey, Colors.DarkGrey),
+                        (Label.BackgroundColorProperty, Colors.White.WithLuminosity(0.9f), 
+                                                        Colors.Black.WithLuminosity(0.2f)),
                         (Label.TextColorProperty, Colors.Black, Colors.White)
                     );
 
+            var style = kv.RowIndex % 2 == 0 ? EvenRowStyle : OddRowStyle;
 
-            var evenRowTrigger = new DataTrigger(typeof(Label)) {
-                Binding = new Binding(nameof(kv.RowIndex), converter: IsEvenConverter),
-                Value = true,
-                Setters = {
-                    new Setter {
-                        Property = Label.StyleProperty,
-                        Value = EvenRowStyle
-                    }
-                }
-            };
-
-            var oddRowTrigger = new DataTrigger(typeof(Label)) {
-                Binding = new Binding(nameof(kv.RowIndex), converter: IsEvenConverter),
-                Value = false,
-                Setters = {
-                    new Setter {
-                        Property = Label.StyleProperty,
-                        Value = OddRowStyle
-                    }
-                }
-            };
+            var columns = kv.columns ?? Columns.Define(150, 100);
 
             return new DataTemplate(() => new Grid() {
-
-                ColumnDefinitions = Columns.Define(150, 300),
+                ColumnDefinitions = columns,
                 Children = {
-
                     new Label().Column(0)
                                .Text(kv.Key)
-                               .Invoke(l => {
-                                    l.Triggers.Add(evenRowTrigger);
-                                    l.Triggers.Add(oddRowTrigger);
-                               }),
-
+                               .Style(style)
+                               .Fill().TextStart()
+                               ,
                     new Label().Column(1)
                                .Text(kv.Value.ToString())
-                               .Invoke(l => {
-                                     l.Triggers.Add(evenRowTrigger);
-                                     l.Triggers.Add(oddRowTrigger);
-                                }),
+                               .Style(style)
+                               .Fill().TextStart()
                 },
             });
         }
